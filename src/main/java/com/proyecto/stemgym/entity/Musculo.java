@@ -1,5 +1,8 @@
 package com.proyecto.stemgym.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.*;
 
 /**
@@ -48,6 +51,10 @@ public class Musculo {
     @Column(nullable = false)
     private String urlImagen;
 
+    /** Lista de ejercicios donde el músculo es el principal */
+    @OneToMany(mappedBy = "musculoPrincipal", cascade = CascadeType.ALL)
+    private List<Ejercicio> ejercicios;
+
     // ========== CONSTRUCTORES =========== //
     /**
      * Constructor para JPA
@@ -76,6 +83,7 @@ public class Musculo {
         this.minVolumenSemanal = minVolumenSemanal;
         this.maxVolumenSemanal = maxVolumenSemanal;
         this.urlImagen = urlImagen;
+        ejercicios = new ArrayList<>();
     }
 
     // ========== GETTERS & SETTERS ======== //
@@ -240,6 +248,32 @@ public class Musculo {
      */
     public void setUrlImagen(String urlImagen) {
         this.urlImagen = urlImagen;
+    }
+
+    /**
+     * Método get para ejercicios
+     * <p>
+     * Devuelve una lista de ejercicios donde el músculo es el principal
+     * </p>
+     * 
+     * @return lista de ejercicios
+     * @since 1.p
+     */
+    public List<Ejercicio> getEjercicios() {
+        return ejercicios;
+    }
+
+    /**
+     * Método set para ejercicios
+     * <p>
+     * Modifica la lista de ejercicios donde el músculo es el principal
+     * </p>
+     * 
+     * @param ejercicios lista de ejercicios
+     * @since 1.0
+     */
+    public void setEjercicios(List<Ejercicio> ejercicios) {
+        this.ejercicios = ejercicios;
     }
 
     // =========== TO STRING ============ //
