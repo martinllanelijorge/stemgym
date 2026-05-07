@@ -12,6 +12,8 @@ import jakarta.persistence.*;
  * secundarios, una descripción, material e imagen y vídeo del mismo.
  * </p>
  *
+ * @see Musculo
+ * @see Rutina
  * @author Jorge Martín Llaneli
  * @version 1.0
  */
@@ -251,7 +253,8 @@ public class Ejercicio {
     /**
      * Método get para músculos secundarios
      * <p>
-     * Devuelve la lista de músculos secundarios que trabaja el ejercicio.
+     * Devuelve la lista de músculos secundarios que trabaja el ejercicio. Ver
+     * entidad {@link Musculo}
      * </p>
      *
      * @return lista de músculos secundarios

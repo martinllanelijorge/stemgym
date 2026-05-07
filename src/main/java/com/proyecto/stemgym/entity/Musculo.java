@@ -12,6 +12,7 @@ import jakarta.persistence.*;
  * y el volumen semanal mínimo y máximo en series.
  * </p>
  *
+ * @see Ejercicio
  * @author Jorge Martín Llaneli
  * @version 1.0
  */
@@ -30,7 +31,7 @@ public class Musculo {
     private String nombre;
 
     /** Frecuencia de trabajo semanal recomendada (lo normal es {@code 2}) */
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "INT CHECK (frecuencia_recomendada BETWEEN 1 AND 7)")
     private int frecuenciaRecomendada;
 
     /**
