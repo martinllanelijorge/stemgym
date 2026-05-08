@@ -14,11 +14,11 @@ import com.proyecto.stemgym.entity.Musculo;
 public interface MusculoService {
     List<Musculo> obtenerTodos();
 
-    Musculo obtenerPorId(Long id);
+    Musculo obtenerMusculoPorId(Long id);
 
     void crearMusculo(Musculo musculo);
 
-    void actualizarMusculo(Musculo musculo, Long id);
+    Musculo actualizarMusculo(Musculo musculoActualizado, Long id);
 
     void eliminarMusculo(Long id);
 }
