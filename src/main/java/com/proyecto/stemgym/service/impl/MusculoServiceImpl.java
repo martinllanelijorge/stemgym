@@ -71,9 +71,19 @@ public class MusculoServiceImpl implements MusculoService {
 
     }
 
+    /**
+     * Método para eliminar un músculo de la BBDD
+     * <p>
+     * Este método permite eliminar un músculo de la BBDD mediante su id
+     * </p>
+     * 
+     * @param id id del músculo que se desea eliminar
+     * 
+     * @since 1.0
+     */
     @Override
     public void eliminarMusculo(Long id) {
-        // TODO Auto-generated method stub
+        musculoRepository.deleteById(id);
 
     }
 
