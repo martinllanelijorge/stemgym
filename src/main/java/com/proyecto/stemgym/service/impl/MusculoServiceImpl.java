@@ -105,10 +105,16 @@ public class MusculoServiceImpl implements MusculoService {
         return musculoRepository.findById(id).orElseThrow(() -> new RuntimeException("¡ERROR! Músculo no encontrado"));
     }
 
+    /**
+     * Método para obtener todos los músculos existentes en la BBDD
+     * 
+     * @return Objetos {@link Musculo} encontrados
+     * 
+     * @since 1.0
+     */
     @Override
     public List<Musculo> obtenerTodos() {
-        // TODO Auto-generated method stub
-        return null;
+        return musculoRepository.findAll();
     }
 
 }
