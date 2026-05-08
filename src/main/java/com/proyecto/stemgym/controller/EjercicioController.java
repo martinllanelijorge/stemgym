@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.proyecto.stemgym.entity.Ejercicio;
-import com.proyecto.stemgym.entity.Musculo;
 import com.proyecto.stemgym.service.EjercicioService;
 
 /**
