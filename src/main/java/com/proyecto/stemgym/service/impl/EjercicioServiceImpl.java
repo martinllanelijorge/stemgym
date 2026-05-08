@@ -62,7 +62,7 @@ public class EjercicioServiceImpl implements EjercicioService {
     /**
      * Método para crear un nuevo ejercicio
      * 
-     * @param musculo ejercicio nuevo
+     * @param ejercicio ejercicio nuevo
      * @return Objeto {@link Ejercicio} creado
      * @since 1.0
      */
