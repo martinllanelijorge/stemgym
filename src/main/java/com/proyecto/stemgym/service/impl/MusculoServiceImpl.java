@@ -37,6 +37,7 @@ public class MusculoServiceImpl implements MusculoService {
      * 
      * @param musculoActualizado músculo con los atributos modificados
      * @param id                 id del músculo que se pretende modificar
+     * @return Objeto {@link Musculo} ya actualizado
      * 
      * @see Musculo
      * @since 1.0
@@ -62,7 +63,7 @@ public class MusculoServiceImpl implements MusculoService {
      * Método para crear un nuevo músculo
      * 
      * @param musculo músculo nuevo
-     * 
+     * @return Objeto {@link Musculo} creado
      * @since 1.0
      */
     @Override
@@ -87,10 +88,21 @@ public class MusculoServiceImpl implements MusculoService {
 
     }
 
+    /**
+     * Método para obtener un músculo por su id
+     * <p>
+     * Este método devuelve un músculo mediante su búsqueda por id, lanza un error
+     * cuando no lo encuentra
+     * </p>
+     * 
+     * @param id id del músculo que se desea encontrar
+     * @return Objeto {@link Musculo} encontrado
+     * @throws RuntimeException si no encuentra el músculo
+     * @since 1.0
+     */
     @Override
     public Musculo obtenerMusculoPorId(Long id) {
-        // TODO Auto-generated method stub
-        return null;
+        return musculoRepository.findById(id).orElseThrow(() -> new RuntimeException("¡ERROR! Músculo no encontrado"));
     }
 
     @Override
