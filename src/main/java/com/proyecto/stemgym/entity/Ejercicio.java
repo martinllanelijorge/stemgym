@@ -83,23 +83,24 @@ public class Ejercicio {
     /**
      * Constructor funcional para ejercicio, con parámetros.
      *
-     * @param nombre           nombre del ejercicio
-     * @param descripcion      descripción y consejos de ejecución
-     * @param material         material necesario para realizarlo
-     * @param urlImagen        URL de la imagen ilustrativa
-     * @param urlVideo         URL del vídeo demostrativo
-     * @param musculoPrincipal músculo principal que trabaja el ejercicio
+     * @param nombre              nombre del ejercicio
+     * @param descripcion         descripción y consejos de ejecución
+     * @param material            material necesario para realizarlo
+     * @param urlImagen           URL de la imagen ilustrativa
+     * @param urlVideo            URL del vídeo demostrativo
+     * @param musculoPrincipal    músculo principal que trabaja el ejercicio
+     * @param musculosSecundarios músculos secundarios que trabajan el ejercicio
      * @since 1.0
      */
     public Ejercicio(String nombre, String descripcion, String material,
-            String urlImagen, String urlVideo, Musculo musculoPrincipal) {
+            String urlImagen, String urlVideo, Musculo musculoPrincipal, List<Musculo> musculosSecundarios) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.material = material;
         this.urlImagen = urlImagen;
         this.urlVideo = urlVideo;
         this.musculoPrincipal = musculoPrincipal;
-        this.musculosSecundarios = new ArrayList<>();
+        this.musculosSecundarios = musculosSecundarios;
     }
 
     // ======== GETTERS & SETTERS ======== //
