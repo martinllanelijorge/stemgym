@@ -58,9 +58,16 @@ public class MusculoServiceImpl implements MusculoService {
 
     }
 
+    /**
+     * Método para crear un nuevo músculo
+     * 
+     * @param musculo músculo nuevo
+     * 
+     * @since 1.0
+     */
     @Override
-    public void crearMusculo(Musculo musculo) {
-        // TODO Auto-generated method stub
+    public Musculo crearMusculo(Musculo musculo) {
+        return musculoRepository.save(musculo);
 
     }
 

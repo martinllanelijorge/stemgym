@@ -16,7 +16,7 @@ public interface MusculoService {
 
     Musculo obtenerMusculoPorId(Long id);
 
-    void crearMusculo(Musculo musculo);
+    Musculo crearMusculo(Musculo musculo);
 
     Musculo actualizarMusculo(Musculo musculoActualizado, Long id);
 
