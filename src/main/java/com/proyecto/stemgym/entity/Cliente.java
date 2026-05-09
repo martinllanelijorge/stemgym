@@ -3,6 +3,8 @@ package com.proyecto.stemgym.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 /**
@@ -61,6 +63,7 @@ public class Cliente {
      * pertenecer a un cliente.
      * </p>
      */
+    @JsonIgnore
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Rutina> rutinas;
 

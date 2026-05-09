@@ -3,6 +3,8 @@ package com.proyecto.stemgym.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 /**
@@ -53,6 +55,7 @@ public class Musculo {
     private String urlImagen;
 
     /** Lista de ejercicios donde el músculo es el principal */
+    @JsonIgnore
     @OneToMany(mappedBy = "musculoPrincipal", cascade = CascadeType.ALL)
     private List<Ejercicio> ejercicios;
 
