@@ -73,11 +73,11 @@ public class Rutina {
      * @see Cliente
      * @since 1.0
      */
-    public Rutina(String nombre, int frecuenciaSemanal, Cliente cliente) {
+    public Rutina(String nombre, int frecuenciaSemanal, Cliente cliente, List<Ejercicio> ejercicios) {
         this.nombre = nombre;
         this.frecuenciaSemanal = frecuenciaSemanal;
         this.cliente = cliente;
-        ejercicios = new ArrayList<>();
+        this.ejercicios = ejercicios;
     }
 
     // ========= GETTERS & SETTERS ========== //
