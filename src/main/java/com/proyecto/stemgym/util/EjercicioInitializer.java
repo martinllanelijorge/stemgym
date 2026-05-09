@@ -153,6 +153,15 @@ public class EjercicioInitializer {
                 "https://www.youtube.com/watch?v=I0Z-mrfePJo",
                 musculoController.obtenerMusculo(8L),
                 new ArrayList<>());
+        
+        // ============= GLÚTEOS ============= //
+        Ejercicio hipTrust = new Ejercicio("Hip trust",
+                "Se debe realizar cogiendo una barra olímpica, haciendo un puente entre el banco y las piernas y elevando estas con el peso apoyado en las caderas",
+                "barra y discos",
+                "https://www.google.com/search?q=hip+trust&sca_esv=e6882076cd0c0955&hl=es&biw=1920&bih=945&udm=2&sxsrf=ANbL-n7slveQfMKDOmpL7fhhj9nxcYwfcg%3A1778342935141&ei=F1z_aZ2uCPulkdUPwuiAgAs&ved=0ahUKEwjdlcDXy6yUAxX7UqQEHUI0ALAQ4dUDCBI&uact=5&oq=hip+trust&gs_lp=Egtnd3Mtd2l6LWltZyIJaGlwIHRydXN0Mg0QABiABBiKBRhDGLEDMg0QABiABBiKBRhDGLEDMgoQABiABBiKBRhDMgoQABiABBiKBRhDMgoQABiABBiKBRhDMgoQABiABBiKBRhDMgoQABiABBiKBRhDMgoQABiABBiKBRhDMgoQABiABBiKBRhDMgwQABiABBgKGAsYsQNIrQxQAFjlCnAAeACQAQCYAbIBoAGYBqoBAzguMbgBA8gBAPgBAZgCCaACuAbCAg4QABiABBiKBRixAxiDAcICCxAAGIAEGLEDGIMBwgIIEAAYgAQYsQPCAgUQABiABJgDAJIHAzguMaAHny-yBwM4LjG4B7gGwgcFMC43LjLIBxmACAE&sclient=gws-wiz-img#sv=CAMSVhoyKhBlLXFMTnJuODY4OGdILWtNMg5xTE5ybjg2ODhnSC1rTToOclhNenlhdVZ4VWJ4YU0gBCocCgZtb3NhaWMSEGUtcUxOcm44Njg4Z0gta00YADABGAcglqTswAdKCBABGAEgASgB",
+                "https://www.youtube.com/watch?v=pF17m_CXfL0",
+                musculoController.obtenerMusculo(8L),
+                new ArrayList<>());
 
         // ============= TRÍCEPS ============ //
         Ejercicio extensionesTrasNuca = new Ejercicio("Extensiones tras nuca",
@@ -171,5 +180,60 @@ public class EjercicioInitializer {
                 musculoController.obtenerMusculo(5L),
                 new ArrayList<>(Arrays.asList(musculoController.obtenerMusculo(1L))));
 
+        // ============= BÍCEPS ============ //
+        Ejercicio curlBiceps = new Ejercicio("Curl de Bíceps",
+                "Con una polea, mancuena o barra subiendo el brazo, haciendo fuerza con el bíceps en posición neutra",
+                "mancuerna, polea, barra",
+                "https://s3assets.skimble.com/assets/2287282/image_iphone.jpg",
+                "https://www.youtube.com/watch?v=i1YgFZB6alI&t=0s",
+                musculoController.obtenerMusculo(6L),
+                new ArrayList<>());
+        
+        Ejercicio curlPredicador = new Ejercicio("Curl predicador",
+                "Con una polea, mancuena o barra subiendo el brazo, haciendo fuerza con el bíceps en posición adelantada",
+                "mancuerna, barra, banco scott, máquina",
+                "https://static.strengthlevel.com/images/exercises/preacher-curl/preacher-curl-800.jpg",
+                "https://www.youtube.com/watch?v=rFbuiBgWCYE",
+                musculoController.obtenerMusculo(6L),
+                new ArrayList<>());
+        
+          Ejercicio curlBayesian = new Ejercicio("Curl bayesian",
+                "Con una polea, mancuena o barra subiendo el brazo, haciendo fuerza con el bíceps en atrasada",
+                "mancuerna, barra máquina",
+                "https://s3assets.skimble.com/assets/2627844/image_iphone.jpg",
+                "https://www.youtube.com/watch?v=eyxodt_n8M4",
+                musculoController.obtenerMusculo(6L),
+                new ArrayList<>());
+        
+        // ============= ABDOMEN ============ //
+        Ejercicio crunchAbdominal = new Ejercicio("Crunch Abdominal",
+                "Con una polea, mancuena o disco, elevando levemente el torso contrayendo el abdomen.",
+                "mancuerna, polea, disco",
+                "https://i.ytimg.com/vi/OsUz898onTE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDVI7thOYz4Eq3F0R5BzgpybIEUuA",
+                "https://www.youtube.com/watch?v=OsUz898onTE",
+                musculoController.obtenerMusculo(10L),
+                new ArrayList<>());
+        
+        // ============= GUARDADO DE LOS EJERCICIOS EN LA DB ================= //
+        ejercicioController.crearNuevoEJercicio(pressBanca);
+        ejercicioController.crearNuevoEJercicio(flexiones);
+        ejercicioController.crearNuevoEJercicio(fondos);
+        ejercicioController.crearNuevoEJercicio(dominadas);
+        ejercicioController.crearNuevoEJercicio(jalonPecho);
+        ejercicioController.crearNuevoEJercicio(remoDorsal);
+        ejercicioController.crearNuevoEJercicio(remoDorian);
+        ejercicioController.crearNuevoEJercicio(encogimientos);
+        ejercicioController.crearNuevoEJercicio(elevacionesLaterales);
+        ejercicioController.crearNuevoEJercicio(pressMilitar);
+        ejercicioController.crearNuevoEJercicio(sentadillas);
+        ejercicioController.crearNuevoEJercicio(extensionesCuadriceps);
+        ejercicioController.crearNuevoEJercicio(curlIsquios);
+        ejercicioController.crearNuevoEJercicio(hipTrust);
+        ejercicioController.crearNuevoEJercicio(extensionesTrasNuca);
+        ejercicioController.crearNuevoEJercicio(extensionesTriceps);
+        ejercicioController.crearNuevoEJercicio(curlBiceps);
+         ejercicioController.crearNuevoEJercicio(curlPredicador);
+        ejercicioController.crearNuevoEJercicio(curlBayesian);
+        ejercicioController.crearNuevoEJercicio(crunchAbdominal);
     }
 }
