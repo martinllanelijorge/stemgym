@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.github.javafaker.Faker;
+import com.proyecto.stemgym.config.InitializationConfig;
 import com.proyecto.stemgym.controller.ClienteController;
 import com.proyecto.stemgym.entity.Cliente;
 
@@ -24,6 +25,9 @@ public class CienteInitializer {
     @Autowired
     private ClienteController clienteController;
 
+    @Autowired
+    private InitializationConfig config;
+
     private final Faker faker = new Faker(new Locale("es"));
 
     /**
@@ -39,7 +43,11 @@ public class CienteInitializer {
      */
     @Transactional
     public void inizializarClientes() {
-
+        // Creación de los clientes
+        for (int i = 0; i < config.getNumeroInicialDeClientes(); i++) {
+            Cliente nuevoCliente = crearClienteAleatorio();
+            clienteController.crearNuevoCliente(nuevoCliente);
+        }
     }
 
     /**
@@ -54,11 +62,12 @@ public class CienteInitializer {
         // Creación de los parámetros para el constructor
         String nombreCompleto = faker.name().fullName();
         String genero = faker.options().option("Hombre", "Mujer", "Otro");
-        int edad = faker.number().numberBetween(18, 80);
-        double pesoActual = faker.number().randomDouble(1, 45, 115); // Entre 45 y 115 Kg
-        double pesoObjetivo = faker.number().randomDouble(1, 50, 90); // Entre 50 y 90 Kg
+        int edad = faker.number().numberBetween(config.getEdadMinimaClientesIniciales(), config.getEdadMaximaClientesIniciales()); // Edades minimas y maximas
+        double pesoActual = faker.number().randomDouble(1, config.getPesoMinimoClientesIniciales(), config.getPesoMaximoClientesIniciales()); // Entre 45 y 115 Kg
+        double pesoObjetivo = faker.number().randomDouble(1, config.getPesoMinimoClientesObjetivo(), config.getPesoMaximoObjetivoIniciales()); // Entre 50 y 90 Kg
         String avatar = faker.internet().avatar();
 
+        // Creación del cliente con características aleatorias
         Cliente clienteAleatorio = new Cliente(nombreCompleto, genero, edad, pesoActual, pesoObjetivo, avatar);
         return clienteAleatorio;
     }

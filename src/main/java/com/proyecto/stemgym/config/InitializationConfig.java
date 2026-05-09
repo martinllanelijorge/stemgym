@@ -16,10 +16,10 @@ public class InitializationConfig {
     private int numeroInicialDeClientes = 50;
     private int edadMinimaClientesIniciales = 18;
     private int edadMaximaClientesIniciales = 80;
-    private double pesoMinimoClientesIniciales = 45;
-    private double pesoMaximoClientesIniciales = 115;
-    private double pesoMinimoClientesObjetivo = 50;
-    private double pesoMaximoObjetivoIniciales = 90;
+    private int pesoMinimoClientesIniciales = 45;
+    private int pesoMaximoClientesIniciales = 115;
+    private int pesoMinimoClientesObjetivo = 50;
+    private int pesoMaximoObjetivoIniciales = 90;
 
     // ========= GETTERS & SETTERS ========== //
     public int getNumeroInicialDeClientes() {
@@ -40,28 +40,28 @@ public class InitializationConfig {
     public void setEdadMaximaClientesIniciales(int edadMaximaClientesIniciales) {
         this.edadMaximaClientesIniciales = edadMaximaClientesIniciales;
     }
-    public double getPesoMinimoClientesIniciales() {
+    public int getPesoMinimoClientesIniciales() {
         return pesoMinimoClientesIniciales;
     }
-    public void setPesoMinimoClientesIniciales(double pesoMinimoClientesIniciales) {
+    public void setPesoMinimoClientesIniciales(int pesoMinimoClientesIniciales) {
         this.pesoMinimoClientesIniciales = pesoMinimoClientesIniciales;
     }
-    public double getPesoMaximoClientesIniciales() {
+    public int getPesoMaximoClientesIniciales() {
         return pesoMaximoClientesIniciales;
     }
-    public void setPesoMaximoClientesIniciales(double pesoMaximoClientesIniciales) {
+    public void setPesoMaximoClientesIniciales(int pesoMaximoClientesIniciales) {
         this.pesoMaximoClientesIniciales = pesoMaximoClientesIniciales;
     }
-    public double getPesoMinimoClientesObjetivo() {
+    public int getPesoMinimoClientesObjetivo() {
         return pesoMinimoClientesObjetivo;
     }
-    public void setPesoMinimoClientesObjetivo(double pesoMinimoClientesObjetivo) {
+    public void setPesoMinimoClientesObjetivo(int pesoMinimoClientesObjetivo) {
         this.pesoMinimoClientesObjetivo = pesoMinimoClientesObjetivo;
     }
-    public double getPesoMaximoObjetivoIniciales() {
+    public int getPesoMaximoObjetivoIniciales() {
         return pesoMaximoObjetivoIniciales;
     }
-    public void setPesoMaximoObjetivoIniciales(double pesoMaximoObjetivoIniciales) {
+    public void setPesoMaximoObjetivoIniciales(int pesoMaximoObjetivoIniciales) {
         this.pesoMaximoObjetivoIniciales = pesoMaximoObjetivoIniciales;
     }
     
