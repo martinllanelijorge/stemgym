@@ -20,7 +20,7 @@ import jakarta.transaction.Transactional;
  * @version 1.0
  */
 @Component
-public class CienteInitializer {
+public class ClienteInitializer {
 
     @Autowired
     private ClienteController clienteController;
