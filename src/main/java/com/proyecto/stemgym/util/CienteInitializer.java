@@ -42,7 +42,7 @@ public class CienteInitializer {
      * @sice 1.0
      */
     @Transactional
-    public void inizializarClientes() {
+    public void inicializarClientes() {
         // Creación de los clientes
         for (int i = 0; i < config.getNumeroInicialDeClientes(); i++) {
             Cliente nuevoCliente = crearClienteAleatorio();
