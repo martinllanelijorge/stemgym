@@ -41,11 +41,11 @@ public class Ejercicio {
     private String material;
 
     /** URL de la imagen del ejercicio */
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String urlImagen;
 
     /** URL del vídeo demostrativo del ejercicio */
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String urlVideo;
 
     /**

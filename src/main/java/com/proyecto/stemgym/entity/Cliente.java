@@ -49,7 +49,7 @@ public class Cliente {
     private double pesoObjetivo;
 
     /** Foto del cliente (url de su alojamiento web) */
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String urlImagen;
 
     /** Se alcanzó el peso o no con true o false */

@@ -51,7 +51,7 @@ public class Musculo {
     private int maxVolumenSemanal;
 
     /** URL de la imagen representativa del músculo. Debe ser una URL. */
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String urlImagen;
 
     /** Lista de ejercicios donde el músculo es el principal */
