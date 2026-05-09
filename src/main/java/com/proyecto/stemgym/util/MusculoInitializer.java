@@ -52,6 +52,8 @@ public class MusculoInitializer {
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa2WcLNTEgJpnOPOzAl2U474BrRIpEm1AkJA&s");
         Musculo gluteos = new Musculo("Gluteos", 2, 12, 16,
                 "https://somasalud.es/wp-content/uploads/2019/03/musculo-gluteo.jpg");
+        Musculo abdomen = new Musculo("Abdomen", 3, 12, 16,
+                "https://edpmadrid.com/wp-content/uploads/2021/08/334-h2.jpg");
 
         // Guardado de los musculos en la DB
         musculoController.crearNuevoMusculo(pectorales);
@@ -63,6 +65,7 @@ public class MusculoInitializer {
         musculoController.crearNuevoMusculo(cuadriceps);
         musculoController.crearNuevoMusculo(isquios);
         musculoController.crearNuevoMusculo(gluteos);
+        musculoController.crearNuevoMusculo(abdomen);
     }
 
 }
