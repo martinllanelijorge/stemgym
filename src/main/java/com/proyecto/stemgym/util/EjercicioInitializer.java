@@ -11,6 +11,8 @@ import com.proyecto.stemgym.controller.MusculoController;
 import com.proyecto.stemgym.entity.Ejercicio;
 import com.proyecto.stemgym.entity.Musculo;
 
+import jakarta.transaction.Transactional;
+
 /**
  * Clase donde tiene lugar la inicialización de los ejercicios base que
  * aparecerán en la API
@@ -35,6 +37,7 @@ public class EjercicioInitializer {
      * @see Musculo
      * @sice 1.0
      */
+    @Transactional
     public void inicializarEjercicios() {
 
         // Creación de los ejercicios
@@ -232,7 +235,7 @@ public class EjercicioInitializer {
         ejercicioController.crearNuevoEJercicio(extensionesTrasNuca);
         ejercicioController.crearNuevoEJercicio(extensionesTriceps);
         ejercicioController.crearNuevoEJercicio(curlBiceps);
-         ejercicioController.crearNuevoEJercicio(curlPredicador);
+        ejercicioController.crearNuevoEJercicio(curlPredicador);
         ejercicioController.crearNuevoEJercicio(curlBayesian);
         ejercicioController.crearNuevoEJercicio(crunchAbdominal);
     }
