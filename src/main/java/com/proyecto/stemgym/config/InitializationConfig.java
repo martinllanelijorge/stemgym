@@ -23,6 +23,8 @@ public class InitializationConfig {
     private int numeroInicialDeRutinas = 60;
     private int numeroMinimoEjerciciosEnRutinaInicial = 3;
     private int numeroMaximoEjerciciosEnRutinaInicial = 10;
+    private int frecuenciaRutinaMinimaInicial = 1;
+    private int frecuenciaRutinaMaximaInicial = 7;
 
     // ========= GETTERS & SETTERS ========== //
     public int getNumeroInicialDeClientes() {
@@ -103,6 +105,22 @@ public class InitializationConfig {
 
     public void setNumeroMaximoEjerciciosEnRutinaInicial(int numeroMaximoEjerciciosEnRutinaInicial) {
         this.numeroMaximoEjerciciosEnRutinaInicial = numeroMaximoEjerciciosEnRutinaInicial;
+    }
+
+    public int getFrecuenciaRutinaMinimaInicial() {
+        return frecuenciaRutinaMinimaInicial;
+    }
+
+    public void setFrecuenciaRutinaMinimaInicial(int frecuenciaRutinaMinimaInicial) {
+        this.frecuenciaRutinaMinimaInicial = frecuenciaRutinaMinimaInicial;
+    }
+
+    public int getFrecuenciaRutinaMaximaInicial() {
+        return frecuenciaRutinaMaximaInicial;
+    }
+
+    public void setFrecuenciaRutinaMaximaInicial(int frecuenciaRutinaMaximaInicial) {
+        this.frecuenciaRutinaMaximaInicial = frecuenciaRutinaMaximaInicial;
     }
 
 }
