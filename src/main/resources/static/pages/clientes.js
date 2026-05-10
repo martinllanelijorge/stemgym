@@ -12,7 +12,12 @@ if (clientes.length === 0) {
     zonaListaClientes.innerHTML = '<li class="mensaje-error-api">No se han encontrado clientes</li>'
 } else {
     for (let cliente of clientes) {
-        zonaListaClientes.innerHTML += `<li>${cliente.nombre}</li>`
+        zonaListaClientes.innerHTML += `
+        <li>
+            <span>${cliente.nombre}</span>
+            <a href="cliente.html?id=${cliente.id}" class="btn-ver-mas">Ver más</a>
+        </li>
+    `
     }
 }
 
