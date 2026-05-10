@@ -1,0 +1,79 @@
+/******************************************ESTILOS GENERALES****************************************/
+/* RESETEO TOTAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* MENU PRINCIPAL DE INDEX.HTML */
+.contenedor-menu-principal {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background-color: #08a81d;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-logo {
+  width: 780px;
+  height: 600px;
+  border-radius: 50%;
+}
+
+.hero-titulo {
+  font-size: 60px;
+  font-weight: 1000;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  color: #000000;
+  text-align: center;
+}
+
+.hero-subtitulo {
+  font-size: 0.92rem;
+  color: #000000;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.navegador-menu-principal {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.menu-tarjeta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color:#122618;
+  border: 1px solid #1e3d25;
+  border-radius: 16px;
+  padding: 10px 10px;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-tarjeta:hover {
+    background-color:#183020;
+    border-color:#ffffff;
+    transform: scale(1.05);
+}
