@@ -9,7 +9,7 @@
 /* ============== MENU PRINCIPAL DE INDEX.HTML =================*/
 .contenedor-menu-principal {
   font-family: "Segoe UI", system-ui, sans-serif;
-  background-color: rgb(34, 61, 36);
+  background: linear-gradient(to right, #1a3d1e, #08a81d 30%, #08a81d 70%, #1a3d1e); /*Para darle un degradado desde el centro a los laterales*/
   color: white;
   min-height: 100vh;
   display: flex;
@@ -20,7 +20,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #08a81d;
+  background-color: transparent;
 }
 
 .hero {
