@@ -5,17 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio - STEM Gym</title>
+    <link rel="stylesheet" href="../../../../css/styles.css">
 </head>
 
 <body>
-    <header class="header">
-        <div class="logo-titulo">
-            <img src="https://logowik.com/content/uploads/images/gym-bodybuilding-fitness-center1722634605.logowik.com.webp" alt="Logo de STEM GYM"
-                class="brand-logo">
-            <span class="brand-titulo">STEM GYM</span>
+    <!--Zona de imagen y titulo-->
+    <main class="menu-principal">
+        <section class="hero">
+            <img src="https://logowik.com/content/uploads/images/gym-bodybuilding-fitness-center1722634605.logowik.com.webp"
+                alt="Logo de STEM GYM" class="hero-logo">
+            <h1 class="hero-titulo">STEM GYM</h1>
+            <p class="hero-subtitulo">Tu entrenamiento a otro nivel</p>
+        </section>
+        <!--Zona de navegación, solo de la página principal-->
+
+        <nav class="menu-nav">
+            <!--Opción de clientes-->
+            <a href="clientes.html" class="menu-tarjeta">
+                <div class="menu-tarjeta-icono">👤</div>
+                <div class="menu-tarjeta-texto">
+                    <span class="menu-tarjeta-titulo">Clientes</span>
+                    <span class="menu-tarjeta-descripcion">Gestión y seguimiento de usuarios</span>
+                </div>
+                <span class="menu-tarjeta-flecha">›</span>
+            </a>
+            <!--Opción de musculos-->
+            <a href="musculos.html" class="menu-tarjeta">
+                <div class="menu-tarjeta-icono">💪</div>
+                <div class="menu-tarjeta-texto">
+                    <span class="menu-tarjeta-titulo">Músculos</span>
+                    <span class="menu-tarjeta-descripcion">Información sobre los músculos</span>
+                </div>
+                <span class="menu-tarjeta-flecha">›</span>
+            </a>
+            <!--Opción de ejercicios-->
+            <a href="ejercicios.html" class="menu-card">
+                <div class="menu-card-icono">🏋️</div>
+                <div class="menu-card-texto">
+                    <span class="menu-card-titulo">Ejercicios</span>
+                    <span class="menu-card-descripcion">Biblioteca de ejercicios</span>
+                </div>
+                <span class="menu-card-flecha">›</span>
+            </a>
+        </nav>
+    </main>
+    <footer class="site-footer">
+        <div class="site-footer-enlaces">
+            <a href="https://www.instagram.com/balancegymboutique/" Target="_blank" class="site-footer-enlace">Instagram</a>
+            <a href="https://x.com/_gimnasio" Target="_blank" class="site-footer-enlace">X</a>
+            <a href="https://www.youtube.com/@GymDirectOfficiel" Target="_blank" class="site-footer-enlace">YouTube</a>
         </div>
-        <nav id="menu"></nav>
-    </header>
+        <a href="mailto:contacto@stemgym.com" class="site-footer-texto">Contacto: contacto@stemgym.com</a>
+    </footer>
 
 </body>
 
