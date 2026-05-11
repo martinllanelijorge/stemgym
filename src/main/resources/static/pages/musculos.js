@@ -10,11 +10,11 @@ const buscadorMusculos = document.getElementById("buscador")
 // Construcción de la lista en el html
 zonaTarjetasMusculos.innerHTML = ""
 
-// Función para compara el cliente con lo buscado en el buscador
+// Función para compara el músculo con lo buscado en el buscador
 function mostrarPorNombreBuscador(textoBusqueda, elementos) {
     for (let elemento of document.querySelectorAll(elementos)) {
         // Se extrae el texto de cada fila y se pone en minúscula para comparar
-        let nombre = elemento.querySelector("p")
+        let nombre = elemento.querySelector("h2")
         nombre = nombre.textContent.toLowerCase()
 
         // EL NOMBRE COMIENZA POR LO ESCRITO EN EL BUSCADOR - SE MUESTRA
@@ -27,7 +27,7 @@ function mostrarPorNombreBuscador(textoBusqueda, elementos) {
     }
 }
 
-// Añade los clientes en lista al cargar la página
+// Añade los musculos en lista al cargar la página
 if (musculos.length === 0) {
     zonaTarjetasMusculos.innerHTML = '<li class="mensaje-error-api">No se han encontrado músculos</li>'
 } else {
@@ -35,7 +35,7 @@ if (musculos.length === 0) {
         zonaTarjetasMusculos.innerHTML += `
         <li class="tarjeta">
             <img src=${musculo.urlImagen}>
-            <p>${musculo.nombre}</p>
+            <h2>${musculo.nombre}</h2>
             <a href="musculoDetalle.html?id=${musculo.id}" class="btn-ver-mas">Ver más</a>
         </li>
     `
