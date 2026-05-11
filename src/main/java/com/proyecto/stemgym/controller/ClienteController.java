@@ -100,7 +100,7 @@ public class ClienteController {
      * @param id id del cliente que se desea eliminar
      */
     @DeleteMapping("/{id}")
-    public void eliminarEjercicio(@PathVariable Long id) {
+    public void eliminarCliente(@PathVariable Long id) {
         clienteService.eliminarCliente(id);
     }
 }

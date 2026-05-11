@@ -13,15 +13,21 @@ const idCliente = parametros.get('id')
 const cliente = await hacerFetch(`GET`, `/clientes/${idCliente}`)
 const listaRutinas = await hacerFetch(`GET`, `/clientes/${idCliente}/rutinas`)
 
+// =============== FUNCIONES ================= //
 // Función para decorar en forma de emoticono si se cumplió el objetivo
-function visualizarObjetivoCumplido(objetivoCumplido){
+function visualizarObjetivoCumplido(objetivoCumplido) {
     let visualizacionObejtivo = "❌"
     if (objetivoCumplido) {
         visualizacionObejtivo = "✅"
     }
     return visualizacionObejtivo
 }
+// Función para eliminar un cliente de la bbdd
+async function eliminarCliente(){
+    await hacerFetch(`DELETE`, `/clientes/${idCliente}`)
+}
 
+// ============== MAIN ============= //
 // Zona de datos del cliente - No incluye rutina
 zonaDatosCliente.innerHTML = `
     <img src=${cliente.urlImagen}/>
@@ -34,7 +40,7 @@ zonaDatosCliente.innerHTML = `
         <p><strong>Objetivo alcanzado: </strong>${visualizarObjetivoCumplido(cliente.objetivoCumplido)}</p>
         <div class="botones-editar-borrar">
             <a class="btn btn-editar" href="editarCliente.html?id=${cliente.id}">Editar</a>
-            <button class="btn btn-borrar">Borrar</button>
+            <button class="btn btn-borrar" id="eliminarCliente">Borrar</button>
         </div>
     </div>`
 
@@ -49,4 +55,14 @@ for (let rutina of listaRutinas) {
         <a href="rutinaDetalle.html?id=${rutina.id}" class="btn-ver-mas">Ver más</a>
     </li>`
 }
+
+// Eliminar cliente de la db
+document.getElementById('eliminarCliente').addEventListener('click', async () => {
+    // Pregunta al ususario por confirmación
+    if (confirm(`¿Está seguro de que desea eliminar a ${cliente.nombre} de la base de datos?`)) {
+        eliminarCliente()
+        // Redirige a la web de clientes
+        location.href = "clientes.html";
+    }
+});
 
