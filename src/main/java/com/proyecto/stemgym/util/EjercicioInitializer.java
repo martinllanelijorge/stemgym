@@ -161,7 +161,7 @@ public class EjercicioInitializer {
         Ejercicio hipTrust = new Ejercicio("Hip trust",
                 "Se debe realizar cogiendo una barra olímpica, haciendo un puente entre el banco y las piernas y elevando estas con el peso apoyado en las caderas",
                 "barra y discos",
-                "https://www.google.com/search?q=hip+trust&sca_esv=e6882076cd0c0955&hl=es&biw=1920&bih=945&udm=2&sxsrf=ANbL-n7slveQfMKDOmpL7fhhj9nxcYwfcg%3A1778342935141&ei=F1z_aZ2uCPulkdUPwuiAgAs&ved=0ahUKEwjdlcDXy6yUAxX7UqQEHUI0ALAQ4dUDCBI&uact=5&oq=hip+trust&gs_lp=Egtnd3Mtd2l6LWltZyIJaGlwIHRydXN0Mg0QABiABBiKBRhDGLEDMg0QABiABBiKBRhDGLEDMgoQABiABBiKBRhDMgoQABiABBiKBRhDMgoQABiABBiKBRhDMgoQABiABBiKBRhDMgoQABiABBiKBRhDMgoQABiABBiKBRhDMgoQABiABBiKBRhDMgwQABiABBgKGAsYsQNIrQxQAFjlCnAAeACQAQCYAbIBoAGYBqoBAzguMbgBA8gBAPgBAZgCCaACuAbCAg4QABiABBiKBRixAxiDAcICCxAAGIAEGLEDGIMBwgIIEAAYgAQYsQPCAgUQABiABJgDAJIHAzguMaAHny-yBwM4LjG4B7gGwgcFMC43LjLIBxmACAE&sclient=gws-wiz-img#sv=CAMSVhoyKhBlLXFMTnJuODY4OGdILWtNMg5xTE5ybjg2ODhnSC1rTToOclhNenlhdVZ4VWJ4YU0gBCocCgZtb3NhaWMSEGUtcUxOcm44Njg4Z0gta00YADABGAcglqTswAdKCBABGAEgASgB",
+                "https://hips.hearstapps.com/hmg-prod/images/hip-thrust-67acc7664e81d.jpg",
                 "https://www.youtube.com/watch?v=pF17m_CXfL0",
                 musculoController.obtenerMusculo(8L),
                 new ArrayList<>());
