@@ -1,20 +1,20 @@
 import { hacerFetch } from '../utils/apiUtils.js'
 
 // Lugar donde se va a almacenar la lista
-const zonaListaClientes = document.getElementById("listaClientes")
-// Lista de clientes de la api
-const clientes = await hacerFetch("GET", "/clientes")
-// Buscador de clientes
-const buscadorCliente = document.getElementById("buscadorCliente")
+const zonaTarjetasMusculos = document.getElementById("listaMusculos")
+// Lista de músculos de la api
+const musculos = await hacerFetch("GET", "/musculos")
+// Buscador de músculos
+const buscadorMusculos = document.getElementById("buscador")
 
 // Construcción de la lista en el html
-zonaListaClientes.innerHTML = ""
+zonaTarjetasMusculos.innerHTML = ""
 
 // Función para compara el cliente con lo buscado en el buscador
 function mostrarPorNombreBuscador(textoBusqueda, elementos) {
     for (let elemento of document.querySelectorAll(elementos)) {
         // Se extrae el texto de cada fila y se pone en minúscula para comparar
-        let nombre = elemento.querySelector("span")
+        let nombre = elemento.querySelector("p")
         nombre = nombre.textContent.toLowerCase()
 
         // EL NOMBRE COMIENZA POR LO ESCRITO EN EL BUSCADOR - SE MUESTRA
@@ -28,22 +28,22 @@ function mostrarPorNombreBuscador(textoBusqueda, elementos) {
 }
 
 // Añade los clientes en lista al cargar la página
-if (clientes.length === 0) {
-    zonaListaClientes.innerHTML = '<li class="mensaje-error-api">No se han encontrado clientes</li>'
+if (musculos.length === 0) {
+    zonaTarjetasMusculos.innerHTML = '<li class="mensaje-error-api">No se han encontrado músculos</li>'
 } else {
-    for (let cliente of clientes) {
-        zonaListaClientes.innerHTML += `
-        <li>
-            <span>${cliente.nombre}</span>
-            <a href="clienteDetalle.html?id=${cliente.id}" class="btn-ver-mas">Ver más</a>
+    for (let musculo of musculos) {
+        zonaTarjetasMusculos.innerHTML += `
+        <li class="tarjeta">
+            <img src=${musculo.urlImagen}>
+            <p>${musculo.nombre}</p>
+            <a href="musculoDetalle.html?id=${musculo.id}" class="btn-ver-mas">Ver más</a>
         </li>
     `
     }
 }
 
 // Acción del buscador por nombre
-buscadorCliente.addEventListener("input", function () {
+buscadorMusculos.addEventListener("input", function () {
     const busquedaActual = this.value.toLowerCase();
-    mostrarPorNombreBuscador(busquedaActual, "#listaClientes li")
+    mostrarPorNombreBuscador(busquedaActual, "#listaMusculos li")
 });
-

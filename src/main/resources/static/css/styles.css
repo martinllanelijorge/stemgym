@@ -309,3 +309,30 @@ main {
 #buscador:focus {
   border-color: #08a81d;
 }
+
+/*=== MUSCULOS.HTML ===*/
+#listaMusculos{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/*==== TARJETAS ====*/
+.tarjeta{
+  display: flex;
+  flex-direction: column;
+  background-color: #71c775;
+  gap: 10px;
+  border-radius: 16px;
+  align-items:center;
+  padding-bottom: 15px;
+}
+
+.tarjeta img{
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 16px;
+  padding: 10px;
+}
