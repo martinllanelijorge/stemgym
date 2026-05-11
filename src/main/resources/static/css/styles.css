@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", system-ui, sans-serif;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 body {
@@ -318,31 +318,42 @@ main {
   gap: 25px;
 }
 
-#zonaCliente{
+#zonaCliente {
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   gap: 50px;
 }
 
-#zonaCliente div{
+#zonaCliente div {
   display: flex;
   flex-direction: column;
-  gap:20px;
+  gap: 20px;
 }
 
-#zonaCliente div > h2{
+#zonaCliente div > h2 {
   font-weight: 800;
   text-transform: uppercase;
+  color: #014b0b;
 }
 
-#zonaCliente div > p{
+#zonaCliente div > p {
   border-bottom: 1px solid black;
 }
 
-#zonaCliente img{
+#zonaCliente div > p strong {
+  color: #014b0b;
+}
+
+#zonaCliente img {
   border-right: 2px solid rgb(85, 107, 88);
   padding-right: 100px;
+}
+
+#zonaCliente .botones-editar-borrar {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 
 #listaRutinas {
@@ -368,7 +379,8 @@ main {
 }
 
 /*=== MUSCULOS.HTML Y EJERCICIOS.HTML ===*/
-#listaMusculos, #listaEjercicios {
+#listaMusculos,
+#listaEjercicios {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -421,3 +433,30 @@ main {
   background-color: white;
   color: black;
 }
+
+/*====== BOTONES EDITAR Y BORRAR ======*/
+
+.btn {
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: 650;
+  color: white;
+  transition: transform 0.1s ease-in-out;
+}
+
+.btn:hover{
+  transform: scale(1.1);
+}
+
+.btn-editar {
+  text-decoration: none;
+  background-color: orange;
+}
+
+.btn-borrar {
+  background-color: red;
+  border: none;
+}
+

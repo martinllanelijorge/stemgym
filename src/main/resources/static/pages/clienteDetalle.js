@@ -32,6 +32,10 @@ zonaDatosCliente.innerHTML = `
         <p><strong>Peso actual: </strong>${cliente.pesoActual} kg</p>
         <p><strong>Objetivo: </strong>${cliente.pesoObjetivo} kg</p>
         <p><strong>Objetivo alcanzado: </strong>${visualizarObjetivoCumplido(cliente.objetivoCumplido)}</p>
+        <div class="botones-editar-borrar">
+            <a class="btn btn-editar" href="editarCliente.html?id=${cliente.id}">Editar</a>
+            <button class="btn btn-borrar">Borrar</button>
+        </div>
     </div>`
 
 // Acceso a creación de una nueva rutina
