@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.proyecto.stemgym.entity.Cliente;
+import com.proyecto.stemgym.entity.Rutina;
 import com.proyecto.stemgym.service.ClienteService;
 
 /**
@@ -53,6 +54,19 @@ public class ClienteController {
     @GetMapping("/{id}")
     public Cliente obtenerCliente(@PathVariable Long id) {
         return clienteService.obtenerClientePorId(id);
+    }
+
+    /**
+     * Método GET de la API para obtener las {@link Rutina} del cliente por id
+     * 
+     * @param id del cliente
+     * @return devuelve un LIst<{@link Rutina}> del cliente buscado
+     * 
+     * @since 1.0
+     */
+    @GetMapping("/{id}/rutinas")
+    public List<Rutina> obtenerRutinasCliente(@PathVariable Long id) {
+        return clienteService.obtenerClientePorId(id).getRutinas();
     }
 
     /**
