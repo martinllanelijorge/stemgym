@@ -5,7 +5,7 @@ const zonaListaClientes = document.getElementById("listaClientes")
 // Lista de clientes de la api
 const clientes = await hacerFetch("GET", "/clientes")
 // Buscador de clientes
-const buscadorCliente = document.getElementById("buscadorCliente")
+const buscadorCliente = document.getElementById("buscador")
 
 // Construcción de la lista en el html
 zonaListaClientes.innerHTML = ""
@@ -14,7 +14,7 @@ zonaListaClientes.innerHTML = ""
 function mostrarPorNombreBuscador(textoBusqueda, elementos) {
     for (let elemento of document.querySelectorAll(elementos)) {
         // Se extrae el texto de cada fila y se pone en minúscula para comparar
-        let nombre = elemento.querySelector("span")
+        let nombre = elemento.querySelector("p")
         nombre = nombre.textContent.toLowerCase()
 
         // EL NOMBRE COMIENZA POR LO ESCRITO EN EL BUSCADOR - SE MUESTRA
@@ -34,7 +34,7 @@ if (clientes.length === 0) {
     for (let cliente of clientes) {
         zonaListaClientes.innerHTML += `
         <li>
-            <span>${cliente.nombre}</span>
+            <p>${cliente.nombre}</p>
             <a href="clienteDetalle.html?id=${cliente.id}" class="btn-ver-mas">Ver más</a>
         </li>
     `

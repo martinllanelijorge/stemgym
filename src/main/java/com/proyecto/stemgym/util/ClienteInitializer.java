@@ -65,7 +65,7 @@ public class ClienteInitializer {
         int edad = faker.number().numberBetween(config.getEdadMinimaClientesIniciales(), config.getEdadMaximaClientesIniciales()); // Edades minimas y maximas
         double pesoActual = faker.number().randomDouble(1, config.getPesoMinimoClientesIniciales(), config.getPesoMaximoClientesIniciales()); // Entre 45 y 115 Kg
         double pesoObjetivo = faker.number().randomDouble(1, config.getPesoMinimoClientesObjetivo(), config.getPesoMaximoObjetivoIniciales()); // Entre 50 y 90 Kg
-        String avatar = faker.internet().avatar();
+        String avatar = "https://placehold.co/300x350";
 
         // Creación del cliente con características aleatorias
         Cliente clienteAleatorio = new Cliente(nombreCompleto, genero, edad, pesoActual, pesoObjetivo, avatar);
