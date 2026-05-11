@@ -26,11 +26,24 @@
         </nav>
     </header>
     <main>
-        <h1></h1>
-        <div class="detalle-cliente">
-            <div id="zonaCliente"></div>
-            <div id="zonaNuevaRutina"></div>
-            <ul id="listaRutinas"></ul>
+        <!--FORMULARIO PARA EDITAR CLIENTE-->
+        <h1>EDITAR CLIENTE</h1>
+        <div class="contenedor-formulario">
+            <form class="formulario" id="formEditar">
+                <input name="nombre" placeholder="Nombre del cliente" required><br><br>
+                <input name="edad" type="number" placeholder="edad" step="1" required><br><br>
+                <select class="desplegable-genero" name="generosPosibles" required>
+                    <option value="Hombre">Hombre</option>
+                    <option value="Mujer">Mujer</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                <input name="pesoActual" type="number" placeholder="Peso actual del cliente" step="0.1"
+                    required><br><br>
+                <input name="pesoObjetivo" type="number" placeholder="Peso objetivo del cliente" step="0.1"
+                    required><br><br>
+                <input name="avatar" type="url" placeholder="enlace de la imagen" required><br><br>
+                <button>Actualizar</button>
+            </form>
         </div>
     </main>
     <footer class="site-footer">
