@@ -167,7 +167,7 @@ main {
 
 .site-footer-texto {
   font-size: 20px;
-  color:white;
+  color: white;
   text-decoration: none;
   transition: transform 0.3s ease-in-out;
 }
@@ -311,7 +311,7 @@ main {
 }
 
 /*=== MUSCULOS.HTML ===*/
-#listaMusculos{
+#listaMusculos {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -322,24 +322,24 @@ main {
 }
 
 /*==== TARJETAS ====*/
-.tarjeta{
+.tarjeta {
   display: flex;
   flex-direction: column;
   background-color: #08a81d;
   gap: 15px;
-  border:3px solid green;
+  border: 3px solid green;
   border-radius: 40px;
-  align-items:center;
+  align-items: center;
   padding-bottom: 15px;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease-in-out;
 }
 
-.tarjeta:hover{
+.tarjeta:hover {
   transform: scale(1.1);
 }
 
-.tarjeta img{
+.tarjeta img {
   width: 250px;
   height: 250px;
   object-fit: cover;
@@ -347,14 +347,17 @@ main {
   padding: 10px;
 }
 
-.tarjeta p{
+.tarjeta p {
   text-transform: uppercase;
   font-size: 30px;
   font-weight: 800;
   color: white;
 }
 
-.tarjeta .btn-ver-mas:hover{
-background-color: white;
-color: black;
+.tarjeta .btn-ver-mas {
+  transition: background-color 0.3s ease-in-out;
+}
+.tarjeta .btn-ver-mas:hover {
+  background-color: white;
+  color: black;
 }
