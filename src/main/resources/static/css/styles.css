@@ -13,6 +13,14 @@ body {
   flex-direction: column;
 }
 
+main {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1; /*Para que el footer se quede abajo*/
+}
+
 /* ============== MENU PRINCIPAL DE INDEX.HTML =================*/
 .contenedor-menu-principal {
   background: linear-gradient(
@@ -238,14 +246,6 @@ body {
 
 /*======== PÁGINA CLIENTES.HTML ============*/
 
-.contenedor-clientes {
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  flex: 1; /*Para que el footer se quede abajo*/
-}
-
 .aniadir-nuevo {
   align-self: flex-start;
   background-color: #08a81d;
@@ -297,7 +297,7 @@ body {
   background-color: #08a81d;
 }
 
-#buscadorCliente {
+#buscador {
   padding: 10px 16px;
   border: 1px solid #bdbcbc;
   border-radius: 8px;
@@ -306,6 +306,6 @@ body {
   outline: none;
 }
 
-#buscadorCliente:focus {
+#buscador:focus {
   border-color: #08a81d;
 }
