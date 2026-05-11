@@ -315,8 +315,10 @@ main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
   justify-content: center;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 /*==== TARJETAS ====*/
@@ -350,4 +352,9 @@ main {
   font-size: 30px;
   font-weight: 800;
   color: white;
+}
+
+.tarjeta .btn-ver-mas:hover{
+background-color: white;
+color: black;
 }
