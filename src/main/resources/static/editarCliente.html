@@ -31,9 +31,9 @@
         <div class="contenedor-formulario">
             <form class="formulario" id="formEditar">
                 <label for="nombre">NOMBRE DEL CLIENTE</label>
-                <input name="nombre" id="nombre" placeholder="Nombre del cliente" required><br><br>
+                <input name="nombre" id="nombre" placeholder="Ej: Pedro Gómez" required><br><br>
                 <label for="edad">EDAD</label>
-                <input name="edad" id="edad" type="number" placeholder="edad" step="1" required><br><br>
+                <input name="edad" id="edad" type="number" step="1" min="18" max="120" required><br><br>
                 <label for="generosPosibles">GÉNERO</label>
                 <select class="desplegable-genero" name="generosPosibles" id="generosPosibles" required>
                     <option value="Hombre">Hombre</option>
@@ -41,13 +41,13 @@
                     <option value="Otro">Otro</option>
                 </select>
                 <label for="pesoActual">PESO ACTUAL</label>
-                <input name="pesoActual" id="pesoActual" type="number" placeholder="Peso actual del cliente" step="0.1"
+                <input name="pesoActual" id="pesoActual" type="number" min="30" max="350" step="0.1"
                     required><br><br>
                 <label for="pesoObjetivo">PESO OBJETIVO</label>
-                <input name="pesoObjetivo" id="pesoObjetivo" type="number" placeholder="Peso objetivo del cliente"
+                <input name="pesoObjetivo" id="pesoObjetivo" type="number" min="45" max="110"
                     step="0.1" required><br><br>
                 <label for="avatar">IMAGEN PARA EL AVATAR</label>
-                <input name="avatar" id="avatar" type="url" placeholder="enlace de la imagen" required><br><br>
+                <input name="avatar" id="avatar" type="url" placeholder="https://ejemplo.com" required><br><br>
                 <button class="actualizar">Actualizar</button>
             </form>
         </div>
