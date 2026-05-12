@@ -29,7 +29,7 @@ function mostrarPorNombreBuscador(textoBusqueda, elementos) {
 
 // Añade los clientes en lista al cargar la página
 if (clientes.length === 0) {
-    zonaListaClientes.innerHTML = '<li class="mensaje-error-api">No se han encontrado clientes</li>'
+    zonaListaClientes.innerHTML = '<li class="error">No se han encontrado clientes</li>'
 } else {
     for (let cliente of clientes) {
         zonaListaClientes.innerHTML += `

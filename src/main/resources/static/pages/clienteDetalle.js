@@ -23,7 +23,7 @@ function visualizarObjetivoCumplido(objetivoCumplido) {
     return visualizacionObejtivo
 }
 // Función para eliminar un cliente de la bbdd
-async function eliminarCliente(id){
+async function eliminarCliente(id) {
     await eliminarFetch(`/clientes/${id}`)
 }
 
@@ -48,13 +48,20 @@ zonaDatosCliente.innerHTML = `
 zonaNuevaRutina.innerHTML = `<a class="btn-verde" href="nuevaRutina.html?id=${cliente.id}">Crear nueva rutina</a>`
 
 // Rutina del cliente - filas - con cabecera
-for (let rutina of listaRutinas) {
-    zonaListaRutinas.innerHTML += `
+// HAY RUTINA DEL CLIENTE
+if (listaRutinas) {
+    for (let rutina of listaRutinas) {
+        zonaListaRutinas.innerHTML += `
     <li>
         <p>${rutina.nombre}</p>
         <a href="rutinaDetalle.html?id=${rutina.id}" class="btn-ver-mas">Ver más</a>
     </li>`
+    }
+    // NO HAY RUTINA DEL CLIENTE
+} else {
+    zonaListaRutinas.innerHTML = `<li><p class="advertencia">⚠️ El cliente aun no tiene rutinas</p></li>`
 }
+
 
 // Eliminar cliente de la db
 document.getElementById('eliminarCliente').addEventListener('click', async () => {
