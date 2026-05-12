@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -19,6 +19,11 @@ main {
   flex-direction: column;
   gap: 20px;
   flex: 1; /*Para que el footer se quede abajo*/
+}
+
+h1 {
+  font-size: 50px;
+  color: #034606;
 }
 
 /* ============== MENU PRINCIPAL DE INDEX.HTML =================*/
@@ -348,8 +353,8 @@ main {
 #zonaCliente img {
   border-right: 2px solid rgb(85, 107, 88);
   padding-right: 100px;
-  width: 300px;
-  height: 350px;
+  width: 350px;
+  height: 300px;
   object-fit: cover;
 }
 
@@ -449,7 +454,7 @@ main {
   transition: transform 0.1s ease-in-out;
 }
 
-.btn:hover{
+.btn:hover {
   transform: scale(1.1);
 }
 
@@ -463,3 +468,60 @@ main {
   border: none;
 }
 
+/*======== FORMULARIO ========*/
+
+.contenedor-formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid rgb(1, 97, 1);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+  gap: 5px;
+  margin-bottom: 40px;
+  width: 20%;
+}
+
+.formulario-input {
+  width: 100%;
+  padding: 5px 8px;
+  margin-bottom: 10px;
+  border: 2px solid #bbe8b0;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: #e8ffe1;
+  color: #0a3b12;
+}
+
+.formulario-input:focus {
+  outline: none;
+  border-color: #02680b;
+}
+
+.formulario-label {
+  color: #137c18;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.desplegable {
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 5px 8px;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #0a3b12;
+  border: 2px solid #bbe8b0;
+  appearance: none;
+}

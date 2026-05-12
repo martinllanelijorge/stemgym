@@ -27,28 +27,28 @@
     </header>
     <main>
         <!--FORMULARIO PARA EDITAR CLIENTE-->
-        <h1>EDITAR CLIENTE</h1>
         <div class="contenedor-formulario">
+            <h1>EDITAR CLIENTE</h1>
             <form class="formulario" id="formEditar">
-                <label for="nombre">NOMBRE DEL CLIENTE</label>
-                <input name="nombre" id="nombre" placeholder="Ej: Pedro Gómez" required><br><br>
-                <label for="edad">EDAD</label>
-                <input name="edad" id="edad" type="number" step="1" min="18" max="120" required><br><br>
-                <label for="generosPosibles">GÉNERO</label>
-                <select class="desplegable-genero" name="generosPosibles" id="generosPosibles" required>
+                <label class="formulario-label" for="nombre">NOMBRE DEL CLIENTE</label>
+                <input class="formulario-input" name="nombre" id="nombre" placeholder="Ej: Pedro Gómez" required><br><br>
+                <label class="formulario-label" for="edad">EDAD</label>
+                <input class="formulario-input" name="edad" id="edad" type="number" step="1" min="18" max="120" required><br><br>
+                <label class="formulario-label" for="generosPosibles">GÉNERO</label>
+                <select class="desplegable" name="generosPosibles" id="generosPosibles" required>
                     <option value="Hombre">Hombre</option>
                     <option value="Mujer">Mujer</option>
                     <option value="Otro">Otro</option>
                 </select>
-                <label for="pesoActual">PESO ACTUAL</label>
-                <input name="pesoActual" id="pesoActual" type="number" min="30" max="350" step="0.1"
+                <label class="formulario-label" for="pesoActual">PESO ACTUAL</label>
+                <input class="formulario-input" name="pesoActual" id="pesoActual" type="number" min="30" max="350" step="0.1"
                     required><br><br>
-                <label for="pesoObjetivo">PESO OBJETIVO</label>
-                <input name="pesoObjetivo" id="pesoObjetivo" type="number" min="45" max="110"
+                <label class="formulario-label" for="pesoObjetivo">PESO OBJETIVO</label>
+                <input class="formulario-input" name="pesoObjetivo" id="pesoObjetivo" type="number" min="45" max="110"
                     step="0.1" required><br><br>
-                <label for="avatar">IMAGEN PARA EL AVATAR</label>
-                <input name="avatar" id="avatar" type="url" placeholder="https://ejemplo.com" required><br><br>
-                <button class="actualizar">Actualizar</button>
+                <label class="formulario-label" for="avatar">IMAGEN PARA EL AVATAR</label>
+                <input class="formulario-input" name="avatar" id="avatar" type="url" placeholder="https://ejemplo.com" required><br><br>
+                <button class="actualizar-crear">Actualizar</button>
             </form>
         </div>
     </main>
