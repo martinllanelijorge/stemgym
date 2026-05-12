@@ -23,6 +23,9 @@ async function cargarDatosClienteEnFormulario() {
 }
 
 // ======== MAIN ========= //
+// zona donde se ubicará el botón de ir hacia atrás y creación del botón
+const zonaBotonParaAtras = document.getElementById("zonaBotonAtras")
+zonaBotonParaAtras.innerHTML = `<a class="btn-volver" href="clienteDetalle.html?id=${idCliente}">Volver</a>`
 
 // Abdorción de datos
 document.getElementById('formEditar').onsubmit = async (elemento) => {
@@ -47,3 +50,4 @@ document.getElementById('formEditar').onsubmit = async (elemento) => {
 }
 
 cargarDatosClienteEnFormulario()
+
