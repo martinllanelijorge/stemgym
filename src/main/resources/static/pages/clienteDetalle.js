@@ -1,4 +1,4 @@
-import { hacerFetch } from '../utils/apiUtils.js'
+import { eliminarFetch, hacerFetch } from '../utils/apiUtils.js'
 
 // Zona donde se pondrán los datos del cliente
 const zonaDatosCliente = document.getElementById("zonaCliente")
@@ -23,8 +23,8 @@ function visualizarObjetivoCumplido(objetivoCumplido) {
     return visualizacionObejtivo
 }
 // Función para eliminar un cliente de la bbdd
-async function eliminarCliente(){
-    await hacerFetch(`DELETE`, `/clientes/${idCliente}`)
+async function eliminarCliente(id){
+    await eliminarFetch(`/clientes/${id}`)
 }
 
 // ============== MAIN ============= //
@@ -37,7 +37,7 @@ zonaDatosCliente.innerHTML = `
         <p><strong>Género: </strong>${cliente.genero}</p>
         <p><strong>Peso actual: </strong>${cliente.pesoActual} kg</p>
         <p><strong>Objetivo: </strong>${cliente.pesoObjetivo} kg</p>
-        <p><strong>Objetivo alcanzado: </strong>${visualizarObjetivoCumplido(cliente.objetivoCumplido)}</p>
+        <p><strong>Objetivo alcanzado: </strong>${visualizarObjetivoCumplido(cliente.objetivoAlcanzado)}</p>
         <div class="botones-editar-borrar">
             <a class="btn btn-editar" href="editarCliente.html?id=${cliente.id}">Editar</a>
             <button class="btn btn-borrar" id="eliminarCliente">Borrar</button>
@@ -60,9 +60,9 @@ for (let rutina of listaRutinas) {
 document.getElementById('eliminarCliente').addEventListener('click', async () => {
     // Pregunta al ususario por confirmación
     if (confirm(`¿Está seguro de que desea eliminar a ${cliente.nombre} de la base de datos?`)) {
-        eliminarCliente()
+        await eliminarCliente(idCliente)
         // Redirige a la web de clientes
-        location.href = "clientes.html";
+        window.location.href = "clientes.html";
     }
 });
 

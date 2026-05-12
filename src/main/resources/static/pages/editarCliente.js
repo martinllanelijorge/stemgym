@@ -46,7 +46,7 @@ document.getElementById('formEditar').onsubmit = async (elemento) => {
     }
 
     // Petición put para que se guarden los cambios y vuelta al detalle
-    await hacerFetch(`PUT`, `/cliente/${idCliente}`, clienteEditado)
+    await hacerFetch(`PUT`, `/clientes/${idCliente}`, clienteEditado)
     window.location.href = `clienteDetalle.html?id=${idCliente}`;
 }
 

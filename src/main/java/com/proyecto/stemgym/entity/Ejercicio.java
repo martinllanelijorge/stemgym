@@ -1,6 +1,5 @@
 package com.proyecto.stemgym.entity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.*;
