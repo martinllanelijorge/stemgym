@@ -258,7 +258,7 @@ h1 {
   flex-direction: column;
 }
 
-#listaClientes li {
+#listaClientes li:not(.advertencia) {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -266,11 +266,11 @@ h1 {
   border-bottom: 1px solid #034606;
 }
 
-#listaClientes li:first-child {
+#listaClientes li:first-child:not(.advertencia) {
   border-top: 1px solid #034606;
 }
 
-#listaClientes li:hover {
+#listaClientes li:hover:not(.advertencia) {
   background-color: #ebe6e6;
 }
 
