@@ -39,7 +39,7 @@ zonaDatosCliente.innerHTML = `
         <p><strong>Objetivo: </strong>${cliente.pesoObjetivo} kg</p>
         <p><strong>Objetivo alcanzado: </strong>${visualizarObjetivoCumplido(cliente.objetivoAlcanzado)}</p>
         <div class="botones-editar-borrar">
-            <a class="btn btn-editar" href="editarCliente.html?id=${cliente.id}">Editar</a>
+            <a class="btn btn-editar" href="formularioCliente.html?id=${cliente.id}&accion=editar">Editar</a>
             <button class="btn btn-borrar" id="eliminarCliente">Borrar</button>
         </div>
     </div>`

@@ -27,16 +27,14 @@
     </header>
     <main>
         <div id="zonaBotonAtras"></div>
-        <!--FORMULARIO PARA CREAR CLIENTE-->
+        <!--FORMULARIO PARA CLIENTE-->
         <div class="contenedor-formulario">
-            <h1>CREAR CLIENTE</h1>
-            <form class="formulario" id="formCrearCliente">
+            <h1 id="tituloFormularioCliente"></h1>
+            <form class="formulario" id="formCliente">
                 <label class="formulario-label" for="nombre">NOMBRE DEL CLIENTE</label>
-                <input class="formulario-input" name="nombre" id="nombre" placeholder="Ej: Pedro Gómez"
-                    required><br><br>
+                <input class="formulario-input" name="nombre" id="nombre" placeholder="Ej: Pedro Gómez" required><br><br>
                 <label class="formulario-label" for="edad">EDAD</label>
-                <input class="formulario-input" name="edad" id="edad" type="number" step="1" min="18" max="120"
-                    required><br><br>
+                <input class="formulario-input" name="edad" id="edad" type="number" step="1" min="18" max="120" required><br><br>
                 <label class="formulario-label" for="generosPosibles">GÉNERO</label>
                 <select class="desplegable" name="generosPosibles" id="generosPosibles" required>
                     <option value="Hombre">Hombre</option>
@@ -44,15 +42,14 @@
                     <option value="Otro">Otro</option>
                 </select>
                 <label class="formulario-label" for="pesoActual">PESO ACTUAL</label>
-                <input class="formulario-input" name="pesoActual" id="pesoActual" type="number" min="30" max="350"
-                    step="0.1" required><br><br>
+                <input class="formulario-input" name="pesoActual" id="pesoActual" type="number" min="30" max="350" step="0.1"
+                    required><br><br>
                 <label class="formulario-label" for="pesoObjetivo">PESO OBJETIVO</label>
                 <input class="formulario-input" name="pesoObjetivo" id="pesoObjetivo" type="number" min="45" max="110"
                     step="0.1" required><br><br>
                 <label class="formulario-label" for="avatar">IMAGEN PARA EL AVATAR</label>
-                <input class="formulario-input" name="avatar" id="avatar" type="url" placeholder="https://ejemplo.com"
-                    required><br><br>
-                <button class="actualizar-crear">Actualizar</button>
+                <input class="formulario-input" name="avatar" id="avatar" type="url" placeholder="https://ejemplo.com" required><br><br>
+                <button class="actualizar-crear" id="botonFormularioCliente"></button>
             </form>
         </div>
     </main>
@@ -68,6 +65,6 @@
         <a href="mailto:contacto@stemgym.com" class="site-footer-texto">Contacto: contacto@stemgym.com</a>
     </footer>
 </body>
-<script type="module" src="pages/crearCliente.js"></script>
+<script type="module" src="pages/formularioCliente.js"></script>
 
 </html>
