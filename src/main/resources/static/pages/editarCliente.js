@@ -14,12 +14,12 @@ async function cargarDatosClienteEnFormulario() {
 
     // Rellenamos el formulario con los datos
     const form = document.getElementById('formEditar')
-    form.nombre.value = cliente.nombre 
-    form.edad.value = cliente.edad 
-    form.generosPosibles.value = cliente.genero 
-    form.pesoActual.value = cliente.pesoActual 
-    form.pesoObjetivo.value = cliente.pesoObjetivo 
-    form.avatar.value = cliente.urlImagen 
+    form.nombre.value = cliente.nombre
+    form.edad.value = cliente.edad
+    form.generosPosibles.value = cliente.genero
+    form.pesoActual.value = cliente.pesoActual
+    form.pesoObjetivo.value = cliente.pesoObjetivo
+    form.avatar.value = cliente.urlImagen
 }
 
 // ======== MAIN ========= //
@@ -29,24 +29,25 @@ zonaBotonParaAtras.innerHTML = `<a class="btn-verde" href="clienteDetalle.html?i
 
 // Abdorción de datos
 document.getElementById('formEditar').onsubmit = async (elemento) => {
-    elemento.preventDefault()
 
+    elemento.preventDefault()
     // Obtenemos el formulario que se ha enviado
     const form = elemento.target;
 
     // Convertimos el formulario a un objeto
     const clienteEditado = {
-        nombre: form.nombre.value, 
-        edad: Number(form.edad.value), 
-        genero: form.genero.value,
+        id: idCliente,
+        nombre: form.nombre.value,
+        edad: Number(form.edad.value),
+        genero: form.generosPosibles.value,
         pesoActual: Number(form.pesoActual.value),
-        pesoObjetivo: Number(form.pesoObjetivo.value), 
+        pesoObjetivo: Number(form.pesoObjetivo.value),
         urlImagen: form.avatar.value
     }
 
     // Petición put para que se guarden los cambios y vuelta al detalle
-    await hacerFetch(`PUT`, `/cliente/${idCliente}`)
-    window.location = `detalleCliente.html?id=${idCliente}`;
+    await hacerFetch(`PUT`, `/cliente/${idCliente}`, clienteEditado)
+    window.location.href = `clienteDetalle.html?id=${idCliente}`;
 }
 
 cargarDatosClienteEnFormulario()
