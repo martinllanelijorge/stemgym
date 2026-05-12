@@ -51,14 +51,14 @@ zonaNuevaRutina.innerHTML = `<a class="btn-verde" href="nuevaRutina.html?id=${cl
 if (listaRutinas.length > 0) {
     for (let rutina of listaRutinas) {
         zonaListaRutinas.innerHTML += `
-    <li>
+    <li class="rutina-en-lista">
         <p>${rutina.nombre}</p>
         <a href="rutinaDetalle.html?id=${rutina.id}" class="btn-ver-mas">Ver más</a>
     </li>`
     }
     // NO HAY RUTINA DEL CLIENTE - MENSAJE DE ADVERTENCIA
 } else {
-    zonaListaRutinas.innerHTML = `<li class="advertencia" >⚠️ El cliente aun no tiene rutinas</li>`
+    zonaListaRutinas.innerHTML = `<li class="advertencia">⚠️<strong> Advertencia</strong><br>El cliente aun no tiene rutinas</li>`
 }
 
 // Eliminar cliente de la db
