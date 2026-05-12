@@ -30,19 +30,25 @@
         <h1>EDITAR CLIENTE</h1>
         <div class="contenedor-formulario">
             <form class="formulario" id="formEditar">
-                <input name="nombre" placeholder="Nombre del cliente" required><br><br>
-                <input name="edad" type="number" placeholder="edad" step="1" required><br><br>
-                <select class="desplegable-genero" name="generosPosibles" required>
+                <label for="nombre">NOMBRE DEL CLIENTE</label>
+                <input name="nombre" id="nombre" placeholder="Nombre del cliente" required><br><br>
+                <label for="edad">EDAD</label>
+                <input name="edad" id="edad" type="number" placeholder="edad" step="1" required><br><br>
+                <label for="generosPosibles">GÉNERO</label>
+                <select class="desplegable-genero" name="generosPosibles" id="generosPosibles" required>
                     <option value="Hombre">Hombre</option>
                     <option value="Mujer">Mujer</option>
                     <option value="Otro">Otro</option>
                 </select>
-                <input name="pesoActual" type="number" placeholder="Peso actual del cliente" step="0.1"
+                <label for="pesoActual">PESO ACTUAL</label>
+                <input name="pesoActual" id="pesoActual" type="number" placeholder="Peso actual del cliente" step="0.1"
                     required><br><br>
-                <input name="pesoObjetivo" type="number" placeholder="Peso objetivo del cliente" step="0.1"
-                    required><br><br>
-                <input name="avatar" type="url" placeholder="enlace de la imagen" required><br><br>
-                <button>Actualizar</button>
+                <label for="pesoObjetivo">PESO OBJETIVO</label>
+                <input name="pesoObjetivo" id="pesoObjetivo" type="number" placeholder="Peso objetivo del cliente"
+                    step="0.1" required><br><br>
+                <label for="avatar">IMAGEN PARA EL AVATAR</label>
+                <input name="avatar" id="avatar" type="url" placeholder="enlace de la imagen" required><br><br>
+                <button class="actualizar">Actualizar</button>
             </form>
         </div>
     </main>

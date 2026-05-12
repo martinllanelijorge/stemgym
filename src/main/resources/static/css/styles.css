@@ -348,6 +348,9 @@ main {
 #zonaCliente img {
   border-right: 2px solid rgb(85, 107, 88);
   padding-right: 100px;
+  width: 300px;
+  height: 350px;
+  object-fit: cover;
 }
 
 #zonaCliente .botones-editar-borrar {
