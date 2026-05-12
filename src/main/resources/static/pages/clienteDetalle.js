@@ -47,9 +47,8 @@ zonaDatosCliente.innerHTML = `
 // Acceso a creación de una nueva rutina
 zonaNuevaRutina.innerHTML = `<a class="btn-verde" href="nuevaRutina.html?id=${cliente.id}">Crear nueva rutina</a>`
 
-// Rutina del cliente - filas - con cabecera
 // HAY RUTINA DEL CLIENTE
-if (listaRutinas) {
+if (listaRutinas.length > 0) {
     for (let rutina of listaRutinas) {
         zonaListaRutinas.innerHTML += `
     <li>
@@ -57,11 +56,10 @@ if (listaRutinas) {
         <a href="rutinaDetalle.html?id=${rutina.id}" class="btn-ver-mas">Ver más</a>
     </li>`
     }
-    // NO HAY RUTINA DEL CLIENTE
+    // NO HAY RUTINA DEL CLIENTE - MENSAJE DE ADVERTENCIA
 } else {
-    zonaListaRutinas.innerHTML = `<li><p class="advertencia">⚠️ El cliente aun no tiene rutinas</p></li>`
+    zonaListaRutinas.innerHTML = `<li class="advertencia" >⚠️ El cliente aun no tiene rutinas</li>`
 }
-
 
 // Eliminar cliente de la db
 document.getElementById('eliminarCliente').addEventListener('click', async () => {

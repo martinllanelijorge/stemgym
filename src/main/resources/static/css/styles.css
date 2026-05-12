@@ -547,3 +547,8 @@ h1 {
 .btn-verde:hover {
   transform: scale(1.1);
 }
+
+/*============= MENSAJES ERROR Y ADVERTECIA ===============*/
+.advertencia {
+  background-color: rgb(255, 217, 0);
+}
