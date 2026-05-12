@@ -45,7 +45,7 @@ zonaDatosCliente.innerHTML = `
     </div>`
 
 // Acceso a creación de una nueva rutina
-zonaNuevaRutina.innerHTML = `<a class="aniadir-nuevo" href="nuevaRutina.html?id=${cliente.id}">Crear nueva rutina</a>`
+zonaNuevaRutina.innerHTML = `<a class="btn-verde" href="nuevaRutina.html?id=${cliente.id}">Crear nueva rutina</a>`
 
 // Rutina del cliente - filas - con cabecera
 for (let rutina of listaRutinas) {

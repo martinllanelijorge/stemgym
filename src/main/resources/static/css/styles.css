@@ -252,21 +252,6 @@ h1 {
 
 /*======== PÁGINA CLIENTES.HTML ============*/
 
-.aniadir-nuevo {
-  align-self: flex-start;
-  background-color: #08a81d;
-  color: white;
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.aniadir-nuevo:hover {
-  background-color: #014e06;
-}
-
 #listaClientes {
   list-style: none;
   display: flex;
@@ -545,4 +530,19 @@ h1 {
   background-color: #bffac7;
   border-color: #bffac7;
   color: #014b0b;
+}
+
+/*======== BOTÓN VERDE COMÚN EN TODAS LAS PÁGINAS =========*/
+.btn-verde {
+  align-self: flex-start;
+  background-color: #08a81d;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: transform 0.3s ease-in-out;
+}
+.btn-verde:hover {
+  transform: scale(1.05);
 }
