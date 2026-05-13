@@ -15,7 +15,7 @@ const botonFormulario = document.getElementById('botonFormularioCliente')
 // Función que permite cargar en el formulario datos previos, para no reescribir (datos del usuario)
 async function cargarDatosClienteEnFormulario() {
 
-    // Realizamos petición GET para obtener un pizzas específico
+    // Realizamos petición GET para obtener un músculo específico
     const cliente = await hacerFetch(`GET`, `/clientes/${idCliente}`)
 
     // Rellenamos el formulario con los datos
