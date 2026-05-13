@@ -34,7 +34,7 @@ if (musculos.length === 0) {
     for (let musculo of musculos) {
         zonaTarjetasMusculos.innerHTML += `
         <li class="tarjeta">
-            <img src=${musculo.urlImagen}>
+            <img src=${musculo.urlImagen} >
             <h2>${musculo.nombre}</h2>
             <a href="musculoDetalle.html?id=${musculo.id}" class="btn-ver-mas">Ver más</a>
         </li>

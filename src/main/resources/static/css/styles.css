@@ -559,3 +559,25 @@ h1 {
   width: 30%;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
 }
+
+/* ========== TABLAS ========= */
+
+.tabla {
+  border-collapse: collapse;
+  border: 2px rgb(0, 94, 0) solid;
+  text-align: center;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tabla,
+th,
+td {
+  background-color: #d8fcdc;
+  border: 2px rgb(0, 94, 0) solid;
+  padding: 10px;
+  color: rgb(1, 61, 1);
+}
+
+.tabla th {
+  background-color:#27a135;
+}

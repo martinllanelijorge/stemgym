@@ -17,8 +17,8 @@ const ejercicios = await hacerFetch(`GET`, `/musculos/${idMusculo}/ejercicios`)
 zonaMusculo.innerHTML = `
     <h2>${musculo.nombre}</h2>
     <div>
-        <img src=${musculo.urlImagen}/>
-        <table>
+        <img src=${musculo.urlImagen} />
+        <table class="tabla">
             <thead>
                 <tr>
                     <th>Frecuencia Recomendada</th>
@@ -28,7 +28,7 @@ zonaMusculo.innerHTML = `
             <tbody>
                 <tr>
                     <td>${musculo.frecuenciaRecomendada}</td>
-                    <td>${musculo.minVolumenSemanal} - ${maxVolumenSemanal}</td>
+                    <td>${musculo.minVolumenSemanal} - ${musculo.maxVolumenSemanal}</td>
                 </tr>
             </tbody>
         </table>
