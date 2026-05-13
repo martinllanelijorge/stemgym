@@ -163,7 +163,7 @@ public class EjercicioInitializer {
                 "barra y discos",
                 "https://hips.hearstapps.com/hmg-prod/images/hip-thrust-67acc7664e81d.jpg",
                 "https://www.youtube.com/watch?v=pF17m_CXfL0",
-                musculoController.obtenerMusculo(8L),
+                musculoController.obtenerMusculo(9L),
                 new ArrayList<>());
 
         // ============= TRÍCEPS ============ //

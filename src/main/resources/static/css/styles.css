@@ -428,6 +428,48 @@ h1 {
   color: black;
 }
 
+.tarjeta-pequenia {
+  display: flex;
+  flex-direction: column;
+  background-color: #08a81d;
+  gap: 3px;
+  border: 3px solid green;
+  border-radius: 40px;
+  align-items: center;
+  padding: 10px 2px 10px 2px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+  width: 150px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.tarjeta-pequenia img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.tarjeta-pequenia:hover {
+  transform: scale(1.1);
+}
+
+.tarjeta-pequenia .btn-ver-mas {
+  transition: background-color 0.3s ease-in-out;
+}
+.tarjeta-pequenia .btn-ver-mas:hover {
+  background-color: white;
+  color: black;
+}
+
+.tarjeta-pequenia h2 {
+  text-transform: uppercase;
+  font-size: 8px;
+  font-weight: 800;
+  color: white;
+}
 /*====== BOTONES EDITAR Y BORRAR ======*/
 
 .btn {
@@ -579,5 +621,53 @@ td {
 }
 
 .tabla th {
-  background-color:#27a135;
+  background-color: #27a135;
+}
+
+/* ========= MUSCULODETALLE.HTML =========== */
+#tituloMusculo {
+  display: flex;
+  font-size: 70px;
+  font-weight: 800;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: rgb(1, 61, 1);
+}
+.detalle-musculo {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+#zonaMusculo {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+}
+
+#zonaMusculo img {
+  width: 450px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 3px green solid;
+}
+
+#zonaMusculo table {
+  margin-top: 50px;
+}
+
+#ejerciciosParticipa {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+#contenedorEjercicios ul {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
 }

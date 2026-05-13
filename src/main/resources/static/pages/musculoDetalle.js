@@ -3,6 +3,7 @@ import { eliminarFetch, hacerFetch } from '../utils/apiUtils.js'
 // Zona donde se pondrán los datos del musculo
 const zonaMusculo = document.getElementById("zonaMusculo")
 const zonaEjercicios = document.getElementById("ejerciciosParticipa")
+const tituloMusculo = document.getElementById("tituloMusculo")
 
 // Obtención de la id del músculo
 const parametros = new URLSearchParams(window.location.search)
@@ -14,8 +15,8 @@ const ejercicios = await hacerFetch(`GET`, `/musculos/${idMusculo}/ejercicios`)
 
 // ============== MAIN ============= //
 // Zona de datos del músculo 
+tituloMusculo.textContent = musculo.nombre.toUpperCase()
 zonaMusculo.innerHTML = `
-    <h2>${musculo.nombre}</h2>
     <div>
         <img src=${musculo.urlImagen} />
         <table class="tabla">
@@ -33,3 +34,25 @@ zonaMusculo.innerHTML = `
             </tbody>
         </table>
     </div>`
+
+// Zona de los ejercicios
+zonaEjercicios.innerHTML = `<h3>EJERCICIOS PRINCIPALES PARA TRABAJAR ${musculo.nombre.toUpperCase()}:</h3> <div id="contenedorEjercicios"></div>`
+
+// Ubicación donde irán las tarjetas de los músculos
+let listaEjercicios = document.createElement("ul");
+let zonaEjerciciosPrincipales = document.getElementById("contenedorEjercicios")
+
+zonaEjerciciosPrincipales.appendChild(listaEjercicios)
+
+// Añade tarjetas de ejercicios en lista
+for (let ejercicio of ejercicios) {
+    listaEjercicios.innerHTML += `
+        <li class="tarjeta-pequenia">
+            <img src=${ejercicio.urlImagen}>
+            <h2>${ejercicio.nombre}</h2>
+            <a href="ejercicioDetalle.html?id=${ejercicio.id}" class="btn-ver-mas">Ver más</a>
+        </li>
+    `
+}
+
+
