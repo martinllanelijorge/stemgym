@@ -45,14 +45,14 @@ public class EjercicioInitializer {
         Ejercicio pressBanca = new Ejercicio("Press banca",
                 "Se debe realizar tumbado en la banca y empujando la barra hacia el lado contrario, formando un leve arco lumbar",
                 "Barra olímpica y discos", "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcCY0RiDhmlqHge9uWtCheMNYDkIaPFebc6349jgiiqem6KMAJ0QIP5EkFk64XQE9ahjsJ39sZvxBfOH0-MPcMA11txPrM9-mmd4zntU9aSAofxExvioS7mqMZGMc4yrn1Cs8nGcA?key=OeCwlVuEXtEmgxskpbBOHpFE",
-                "https://www.youtube.com/watch?v=TAH8RxOS0VI",
+                "https://www.youtube.com/embed/TAH8RxOS0VI?si=W89s3ifGeEI6gGJ_",
                 musculoController.obtenerMusculo(1L),
                 new ArrayList<>(Arrays.asList(musculoController.obtenerMusculo(5L))));
 
         Ejercicio flexiones = new Ejercicio("Flexiones",
                 "Se debe realizar tumbado en el suelo boca abajo y empujando el suelo, sin perder la tensión en el abdomen",
                 "Suelo", "https://static.strengthlevel.com/images/exercises/push-ups/push-ups-800.jpg",
-                "https://www.youtube.com/watch?v=mTs83kUu7rc&t=0s",
+                "https://www.youtube.com/embed/mTs83kUu7rc?si=0SRJczp548LeRORZ",
                 musculoController.obtenerMusculo(1L),
                 new ArrayList<>(Arrays.asList(musculoController.obtenerMusculo(5L))));
 
@@ -60,7 +60,7 @@ public class EjercicioInitializer {
                 "Se debe realizar en unas paralelas, subiendo y bajando el cuerpo con el pecho y manteniendo el abdomen duro",
                 "paralelas",
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyzC2_69NTGOF8ro50gqYNH7Sfi5dMqS9tkQ&s",
-                "https://www.youtube.com/watch?v=CkX5QdEz4IE",
+                "https://www.youtube.com/embed/CkX5QdEz4IE?si=dGBfXW1vYFmGnb6c",
                 musculoController.obtenerMusculo(1L),
                 new ArrayList<>(Arrays.asList(musculoController.obtenerMusculo(5L))));
 
@@ -69,7 +69,7 @@ public class EjercicioInitializer {
                 "Se debe realizar en una barra alta colgado, subiendo y bajando el cuerpo con la espalda y manteniendo el abdomen duro",
                 "barra alta",
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSlG56QMs8YsVJpb32GfQUBNwSBVUWLKHB4w&s",
-                "https://www.youtube.com/watch?v=J1r9UtnaY5c",
+                "https://www.youtube.com/embed/J1r9UtnaY5c?si=Rs9SYqjHA5-lom6Z",
                 musculoController.obtenerMusculo(2L),
                 new ArrayList<>(
                         Arrays.asList(musculoController.obtenerMusculo(3L), musculoController.obtenerMusculo(6L))));
@@ -78,7 +78,7 @@ public class EjercicioInitializer {
                 "Se debe realizar la máquina de jalones para la espalda, bajando y dejando subir la polea",
                 "máquina de jalón",
                 "https://s3assets.skimble.com/assets/1876096/image_full.jpg",
-                "https://www.youtube.com/watch?v=x2Y6Mb41zjY",
+                "https://www.youtube.com/embed/x2Y6Mb41zjY?si=1haFb9GKzfU0ko9-",
                 musculoController.obtenerMusculo(2L),
                 new ArrayList<>(
                         Arrays.asList(musculoController.obtenerMusculo(3L), musculoController.obtenerMusculo(6L))));
@@ -87,7 +87,7 @@ public class EjercicioInitializer {
                 "Se debe realizar en una polea tirando con la espalda dorsal, bajando y dejando subir la polea",
                 "máquina de polea",
                 "https://i.blogs.es/209555/remo1/450_1000.webp",
-                "https://www.youtube.com/watch?v=LTwA6-3IIIs",
+                "https://www.youtube.com/embed/LTwA6-3IIIs?si=rZ1ECab4J6ubZTi9",
                 musculoController.obtenerMusculo(2L),
                 new ArrayList<>(
                         Arrays.asList(musculoController.obtenerMusculo(3L), musculoController.obtenerMusculo(6L))));
@@ -97,7 +97,7 @@ public class EjercicioInitializer {
                 "Se debe realizar en la máquina dorian tirando de ella con el pecho apoyado",
                 "máquina Dorian",
                 "https://akonfitness.com/cdn/shop/files/dorian-2.jpg?v=1713779728&width=1214",
-                "https://www.youtube.com/watch?v=s-W_EK_xats",
+                "https://www.youtube.com/embed/s-W_EK_xats?si=gYck_BCS2DTo203v",
                 musculoController.obtenerMusculo(3L),
                 new ArrayList<>(
                         Arrays.asList(musculoController.obtenerMusculo(2L), musculoController.obtenerMusculo(6L))));
@@ -106,7 +106,7 @@ public class EjercicioInitializer {
                 "Se debe realizar cogiendo un peso y subiendo unicamente el trapecio, con una leve inclinación hacia adelante",
                 "mancuernas, barra hexagonal, polea",
                 "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg94r1YXywbtf1kqBkemZVOhD0Xtcv8f9n22uY6yllPkVIdBN-qXQhEKVF9fX_HT2bukVKH4In3r9ozZKet8Pkqbu-H2d4gieXxIgv6yTbZ7Vaotdf5yGdPgS69LXRkFKeXZ4EWSiivtgs2/s1600/encogimiento_de_hombros_con_barra.jpg",
-                "https://www.youtube.com/watch?v=q7yCmRbQ5m0",
+                "https://www.youtube.com/embed/q7yCmRbQ5m0?si=k991YiLfpOcIK8uW",
                 musculoController.obtenerMusculo(3L),
                 new ArrayList<>(
                         Arrays.asList(musculoController.obtenerMusculo(2L))));
@@ -116,7 +116,7 @@ public class EjercicioInitializer {
                 "Se debe realizar cogiendo un peso y subiendo elevando el brazo de forma extendida lateralmente",
                 "mancuernas, polea",
                 "https://static.strengthlevel.com/images/exercises/dumbbell-lateral-raise/dumbbell-lateral-raise-800.jpg",
-                "https://www.youtube.com/watch?v=hgLpdwMtEEs",
+                "https://www.youtube.com/embed/hgLpdwMtEEs?si=nHgjgWARF1vRRQ_6",
                 musculoController.obtenerMusculo(4L),
                 new ArrayList<>(
                         Arrays.asList(musculoController.obtenerMusculo(3L))));
@@ -125,7 +125,7 @@ public class EjercicioInitializer {
                 "Se debe realizar cogiendo un peso y subiendo elevando el brazo similar a un press banca pero completamente vertical",
                 "mancuernas, polea, barra, smith",
                 "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwzoCLkDn6wKzb1JBZMkcf_3ACNYQLKg4AJQpvJdudEVVDv0VrMlCl8PDiQOwRSH5wRwKiRFChh7vpos1oO1sbAMCSJIOuuYZMd9qUMDtTbCjYEfR9mj_t31iAU1hATKjsYFwJAzrPFNc/s1600/press-militar.jpg",
-                "https://www.youtube.com/watch?v=4I6gCfiIHlw&t=0s",
+                "https://www.youtube.com/embed/4I6gCfiIHlw?si=dBlmJG-cbr0s2CUY",
                 musculoController.obtenerMusculo(4L),
                 new ArrayList<>(
                         Arrays.asList(musculoController.obtenerMusculo(1L), musculoController.obtenerMusculo(5L))));
@@ -135,7 +135,7 @@ public class EjercicioInitializer {
                 "Se debe realizar cogiendo un peso y subiendo elevando el cuerpo, doblando las piernas en el proceso",
                 "mancuernas, barra, smith",
                 "https://i.blogs.es/51cee2/sentadilla-goblet/450_1000.webp",
-                "https://www.youtube.com/watch?v=BjixzWEw4EY",
+                "https://www.youtube.com/embed/BjixzWEw4EY?si=gzwCxhU6CVANWpRo",
                 musculoController.obtenerMusculo(7L),
                 new ArrayList<>(
                         Arrays.asList(musculoController.obtenerMusculo(8L), musculoController.obtenerMusculo(9L))));
@@ -144,7 +144,7 @@ public class EjercicioInitializer {
                 "Se debe realizar en la máquina de extensiones, extendiendo las piernas sentado",
                 "máquina de extensiones",
                 "https://s3assets.skimble.com/assets/1914841/image_iphone.jpg",
-                "https://www.youtube.com/watch?v=DI34ngDC8FU",
+                "https://www.youtube.com/embed/DI34ngDC8FU?si=9UrNJktNC1yKPLWH",
                 musculoController.obtenerMusculo(7L),
                 new ArrayList<>());
 
@@ -153,7 +153,7 @@ public class EjercicioInitializer {
                 "Se debe realizar cogiendo un peso y moviendolo con las piernas",
                 "máquina de isquios",
                 "https://static.strengthlevel.com/images/exercises/lying-leg-curl/lying-leg-curl-800.jpg",
-                "https://www.youtube.com/watch?v=I0Z-mrfePJo",
+                "https://www.youtube.com/embed/I0Z-mrfePJo?si=f_JqNDYIA5533kbx",
                 musculoController.obtenerMusculo(8L),
                 new ArrayList<>());
         
@@ -162,7 +162,7 @@ public class EjercicioInitializer {
                 "Se debe realizar cogiendo una barra olímpica, haciendo un puente entre el banco y las piernas y elevando estas con el peso apoyado en las caderas",
                 "barra y discos",
                 "https://hips.hearstapps.com/hmg-prod/images/hip-thrust-67acc7664e81d.jpg",
-                "https://www.youtube.com/watch?v=pF17m_CXfL0",
+                "https://www.youtube.com/embed/pF17m_CXfL0?si=uk7HGauFVjHcUK6U",
                 musculoController.obtenerMusculo(9L),
                 new ArrayList<>());
 
@@ -171,7 +171,7 @@ public class EjercicioInitializer {
                 "Con una polea o mancuena elevando el brazo, haciendo fuerza con el tríceps",
                 "mancuerna, polea",
                 "https://eliteatleta.com/wp-content/uploads/2023/10/Extension-trasnuca-polea-alta-2-brazos-cuerda.webp",
-                "https://www.youtube.com/watch?v=P40-DvgM9qI",
+                "https://www.youtube.com/embed/P40-DvgM9qI?si=XYtRH3SDw2gWiT8r",
                 musculoController.obtenerMusculo(5L),
                 new ArrayList<>(Arrays.asList(musculoController.obtenerMusculo(1L))));
 
@@ -179,7 +179,7 @@ public class EjercicioInitializer {
                 "Con una polea o mancuena bajando el brazo, haciendo fuerza con el tríceps",
                 "mancuerna, polea",
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9Hl1ufjBdtroWhiCrFHBoT7r4s_HJVL9DoQ&s",
-                "https://www.youtube.com/watch?v=uZg6VtRhwQY",
+                "https://www.youtube.com/embed/uZg6VtRhwQY?si=tjg_H1Gzl8xq2UiP",
                 musculoController.obtenerMusculo(5L),
                 new ArrayList<>(Arrays.asList(musculoController.obtenerMusculo(1L))));
 
@@ -188,7 +188,7 @@ public class EjercicioInitializer {
                 "Con una polea, mancuena o barra subiendo el brazo, haciendo fuerza con el bíceps en posición neutra",
                 "mancuerna, polea, barra",
                 "https://s3assets.skimble.com/assets/2287282/image_iphone.jpg",
-                "https://www.youtube.com/watch?v=i1YgFZB6alI&t=0s",
+                "https://www.youtube.com/embed/i1YgFZB6alI?si=LQ3sr8O4cj-F4zEk",
                 musculoController.obtenerMusculo(6L),
                 new ArrayList<>());
         
@@ -196,7 +196,7 @@ public class EjercicioInitializer {
                 "Con una polea, mancuena o barra subiendo el brazo, haciendo fuerza con el bíceps en posición adelantada",
                 "mancuerna, barra, banco scott, máquina",
                 "https://static.strengthlevel.com/images/exercises/preacher-curl/preacher-curl-800.jpg",
-                "https://www.youtube.com/watch?v=rFbuiBgWCYE",
+                "https://www.youtube.com/embed/rFbuiBgWCYE?si=Ompf168C8FZmmVch",
                 musculoController.obtenerMusculo(6L),
                 new ArrayList<>());
         
@@ -204,7 +204,7 @@ public class EjercicioInitializer {
                 "Con una polea, mancuena o barra subiendo el brazo, haciendo fuerza con el bíceps en atrasada",
                 "mancuerna, barra máquina",
                 "https://s3assets.skimble.com/assets/2627844/image_iphone.jpg",
-                "https://www.youtube.com/watch?v=eyxodt_n8M4",
+                "https://www.youtube.com/embed/eyxodt_n8M4?si=doFJkgKZeyDUl62H",
                 musculoController.obtenerMusculo(6L),
                 new ArrayList<>());
         
@@ -213,7 +213,7 @@ public class EjercicioInitializer {
                 "Con una polea, mancuena o disco, elevando levemente el torso contrayendo el abdomen.",
                 "mancuerna, polea, disco",
                 "https://i.ytimg.com/vi/OsUz898onTE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDVI7thOYz4Eq3F0R5BzgpybIEUuA",
-                "https://www.youtube.com/watch?v=OsUz898onTE",
+                "https://www.youtube.com/embed/OsUz898onTE?si=d8jmiKqEHQDigg1d",
                 musculoController.obtenerMusculo(10L),
                 new ArrayList<>());
         

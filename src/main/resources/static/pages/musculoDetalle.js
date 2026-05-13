@@ -74,7 +74,7 @@ if (ejercicios.length === 0) {
 document.getElementById('eliminarMusculo').addEventListener('click', async () => {
     // Pregunta al ususario por confirmación
     if (confirm(`¿Está seguro de que desea eliminar a ${musculo.nombre} de la base de datos?`)) {
-        await eliminarMusculo(idCliente)
+        await eliminarMusculo(idMusculo)
         // Redirige a la web de musculos
         window.location.href = "musculos.html";
     }
