@@ -19,6 +19,11 @@ const ejercicio = await hacerFetch(`GET`, `/ejercicios/${idEjercicio}`)
 const musculoPrincipal = ejercicio.musculoPrincipal // No será nunca array
 const musculosSecundarios = ejercicio.musculosSecundarios // Es un array
 
+// ============= FUNCIONES =============== //
+async function eliminarEjercicio(id){
+    await eliminarFetch(`/musculos/${id}`)
+}
+
 //============== MAIN =============== //
 
 // MODIFICAR TITULO
@@ -70,7 +75,7 @@ zonaVideoEjercicio.innerHTML = `
 document.getElementById('eliminarEjercicio').addEventListener('click', async () => {
     // Pregunta al ususario por confirmación
     if (confirm(`¿Está seguro de que desea eliminar a ${ejercicio.nombre} de la base de datos ? `)) {
-        await eliminarMusculo(idEjercicio)
+        await eliminarEjercicio(idEjercicio)
         // Redirige a la web de musculos
         window.location.href = "ejercicios.html";
     }
