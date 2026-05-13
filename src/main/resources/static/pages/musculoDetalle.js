@@ -4,10 +4,13 @@ import { eliminarFetch, hacerFetch } from '../utils/apiUtils.js'
 const zonaMusculo = document.getElementById("zonaMusculo")
 const zonaEjercicios = document.getElementById("ejerciciosParticipa")
 const tituloMusculo = document.getElementById("tituloMusculo")
+const btnVolver = document.getElementById('volver')
 
 // Obtención de la id del músculo
 const parametros = new URLSearchParams(window.location.search)
 const idMusculo = parametros.get('id')
+const origen = parametros.get('origen')
+const idEjercicio = parametros.get('ejercicioId')
 
 // Uso de fetch para obtención de los datos del músculo
 const musculo = await hacerFetch(`GET`, `/musculos/${idMusculo}`)
@@ -63,7 +66,7 @@ if (ejercicios.length === 0) {
         <li class="tarjeta-pequenia">
             <img src=${ejercicio.urlImagen}>
             <h2>${ejercicio.nombre}</h2>
-            <a href="ejercicioDetalle.html?id=${ejercicio.id}" class="btn-ver-mas">Ver más</a>
+            <a href="ejercicioDetalle.html?id=${ejercicio.id}&origen=musculo&musculoId=${idMusculo}" class="btn-ver-mas">Ver más</a>
         </li>
     `
     }
@@ -80,3 +83,6 @@ document.getElementById('eliminarMusculo').addEventListener('click', async () =>
     }
 });
 
+if (origen === "ejercicio") {
+    btnVolver.href = `ejercicioDetalle.html?id=${idEjercicio}`
+}

@@ -6,10 +6,13 @@ const zonaDetalleEjercicio = document.getElementById('zonaDetalleEjercicio')
 const zonaMusculoPrincipal = document.getElementById('zonaMusculoPrincipal')
 const listaMusculosSecundarios = document.getElementById('listaMusculosSecundarios')
 const zonaVideoEjercicio = document.getElementById('zonaVideoEjercicio')
+const btnVolver = document.getElementById('volver')
 
-// Obtención de la id del músculo
+// Obtención de la id del ejercicio y parametros
 const parametros = new URLSearchParams(window.location.search)
 const idEjercicio = parametros.get('id')
+const origen = parametros.get('origen')
+const idMusculo = parametros.get('musculoId')
 
 // Obtención de datos FETCH
 const ejercicio = await hacerFetch(`GET`, `/ejercicios/${idEjercicio}`)
@@ -36,7 +39,7 @@ zonaMusculoPrincipal.innerHTML = `<h2>MÚSCULO PRINCIPAL:</h2>
     <div class="tarjeta-pequenia">
         <img/ src=${musculoPrincipal.urlImagen} >
         <h2>${musculoPrincipal.nombre}</h2>
-        <a href="musculoDetalle.html?id=${musculoPrincipal.id}" class="btn-ver-mas">Ver más</a>
+        <a href="musculoDetalle.html?id=${musculoPrincipal.id}&origen=ejercicio&ejercicioId=${idEjercicio}" class="btn-ver-mas">Ver más</a>
     </div>`
 
 // MÚSCULOS SECUNDARIOS - TARJETAS
@@ -52,7 +55,7 @@ if (musculosSecundarios.length > 0) {
         <li class="tarjeta-pequenia">
             <img/ src=${musculo.urlImagen} >
             <h2>${musculo.nombre}</h2>
-            <a href="musculoDetalle.html?id=${musculo.id}" class="btn-ver-mas">Ver más</a>
+            <a href="musculoDetalle.html?id=${musculo.id}&origen=ejercicio&ejercicioId=${idEjercicio}" class="btn-ver-mas">Ver más</a>
         </li>
             `
     }
@@ -72,3 +75,9 @@ document.getElementById('eliminarEjercicio').addEventListener('click', async () 
         window.location.href = "ejercicios.html";
     }
 });
+
+
+// BOTÓN VOLVER - VUELVE AL MUSCULO SI VENIA DEL MUSCULO
+if (origen === "musculo") {
+    btnVolver.href = `musculoDetalle.html?id=${idMusculo}`
+}
