@@ -594,12 +594,12 @@ h1 {
 /*============= MENSAJES ERROR Y ADVERTECIA ===============*/
 .advertencia {
   background-color: rgb(248, 237, 180);
-  text-align: left;
+  text-align: justify;
   font-size: 14px;
   border-radius: 10px;
   border-bottom: 5px solid rgb(209, 200, 152);
-  padding: 10px 10px 10px 30px;
-  width: 30%;
+  padding: 10px 30px 10px 30px;
+  width: 35%;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
 }
 

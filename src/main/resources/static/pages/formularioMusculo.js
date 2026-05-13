@@ -31,8 +31,8 @@ function crearMusculoDesdeFormulario() {
         nombre: form.nombre.value,
         frecuenciaRecomendada: Number(form.frecuenciaRecomendada.value),
         minVolumenSemanal: Number(form.minVolumen.value),
-        maxVolumenSemanal: Number(form.maxVolumene.value),
-        urlImagen: form.imagenMusculo
+        maxVolumenSemanal: Number(form.maxVolumen.value),
+        urlImagen: form.imagenMusculo.value
     }
     return datosMusculo
 }
@@ -52,15 +52,15 @@ document.getElementById('formMusculo').onsubmit = async (elemento) => {
 
     // ERA CREAR 
     if (accion === "crear") {
-        // Crea al cliente
+        // Crea al músculo
         await hacerFetch(`POST`, `/musculos`, musculo)
         window.location.href = `musculos.html`
         // ERA EDITAR
     } else {
         musculo.id = idMusculo
         // Petición put para que se guarden los cambios y vuelta al detalle
-        await hacerFetch(`PUT`, `/clientes/${idMusculo}`, musculo)
-        window.location.href = `clienteDetalle.html?id=${idMusculo}`
+        await hacerFetch(`PUT`, `/musculos/${idMusculo}`, musculo)
+        window.location.href = `musculoDetalle.html?id=${idMusculo}`
     }
 }
 
