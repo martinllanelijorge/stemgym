@@ -480,6 +480,7 @@ h1 {
   font-weight: 650;
   color: white;
   transition: transform 0.1s ease-in-out;
+  display: inline-block; /*Para que no se bugue el botón (Hay algunos <a> inline)*/
 }
 
 .btn:hover {
@@ -655,7 +656,8 @@ td {
 }
 
 #zonaMusculo table {
-  margin-top: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #ejerciciosParticipa {
@@ -663,6 +665,10 @@ td {
   flex-direction: column;
   gap: 20px;
   align-items: center;
+}
+
+#ejerciciosParticipa h3 {
+  color: rgb(1, 61, 1);
 }
 
 #contenedorEjercicios ul {

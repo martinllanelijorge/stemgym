@@ -53,7 +53,7 @@ public class MusculoInitializer {
         Musculo gluteos = new Musculo("Gluteos", 2, 12, 16,
                 "https://somasalud.es/wp-content/uploads/2019/03/musculo-gluteo.jpg");
         Musculo abdomen = new Musculo("Abdomen", 3, 12, 16,
-                "https://edpmadrid.com/wp-content/uploads/2021/08/334-h2.jpg");
+                "https://www.ericfavre.com/lifestyle/es/wp-content/uploads/sites/8/2021/09/approche-biomecanique-1024x1024-1.jpg");
 
         // Guardado de los musculos en la DB
         musculoController.crearNuevoMusculo(pectorales);

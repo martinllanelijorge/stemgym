@@ -13,6 +13,11 @@ const idMusculo = parametros.get('id')
 const musculo = await hacerFetch(`GET`, `/musculos/${idMusculo}`)
 const ejercicios = await hacerFetch(`GET`, `/musculos/${idMusculo}/ejercicios`)
 
+// FUNCIONES
+async function eliminarMusculo(id) {
+    await eliminarFetch(`/musculos/${id}`)
+}
+
 // ============== MAIN ============= //
 // Zona de datos del músculo 
 tituloMusculo.textContent = musculo.nombre.toUpperCase()
@@ -33,6 +38,10 @@ zonaMusculo.innerHTML = `
                 </tr>
             </tbody>
         </table>
+        <div class="botones-editar-borrar">
+            <a class="btn btn-editar" href="formularioMusculo.html?id=${musculo.id}&accion=editar">Editar</a>
+            <button class="btn btn-borrar" id="eliminarMusculo">Borrar</button>
+        </div>
     </div>`
 
 // Zona de los ejercicios
@@ -55,4 +64,14 @@ for (let ejercicio of ejercicios) {
     `
 }
 
+// Eliminar músculo
+// Eliminar cliente de la db
+document.getElementById('eliminarMusculo').addEventListener('click', async () => {
+    // Pregunta al ususario por confirmación
+    if (confirm(`¿Está seguro de que desea eliminar a ${musculo.nombre} de la base de datos?`)) {
+        await eliminarMusculo(idCliente)
+        // Redirige a la web de clientes
+        window.location.href = "musculos.html";
+    }
+});
 

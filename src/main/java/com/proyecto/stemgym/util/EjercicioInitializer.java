@@ -44,7 +44,7 @@ public class EjercicioInitializer {
         // ================ PECTORALES ================= //
         Ejercicio pressBanca = new Ejercicio("Press banca",
                 "Se debe realizar tumbado en la banca y empujando la barra hacia el lado contrario, formando un leve arco lumbar",
-                "Barra olímpica y discos", "https://www.fisioterapiaconmueve.com/wp-content/uploads/2018/04/1.jpg",
+                "Barra olímpica y discos", "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcCY0RiDhmlqHge9uWtCheMNYDkIaPFebc6349jgiiqem6KMAJ0QIP5EkFk64XQE9ahjsJ39sZvxBfOH0-MPcMA11txPrM9-mmd4zntU9aSAofxExvioS7mqMZGMc4yrn1Cs8nGcA?key=OeCwlVuEXtEmgxskpbBOHpFE",
                 "https://www.youtube.com/watch?v=TAH8RxOS0VI",
                 musculoController.obtenerMusculo(1L),
                 new ArrayList<>(Arrays.asList(musculoController.obtenerMusculo(5L))));
