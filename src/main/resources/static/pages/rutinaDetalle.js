@@ -5,6 +5,7 @@ const tituloRutina = document.getElementById("tituloRutina")
 const frecuenciaRutina = document.getElementById("frecuenciaRutina")
 const listaEjercicios = document.getElementById("listaEjercicios")
 const main = document.querySelector("main")
+const zonaBotonImprimir = document.querySelector(".contenedor-boton-imprimir")
 const btnVolver = document.getElementById('volver')
 
 // Obtención de la id de la rutina y parametros
@@ -51,7 +52,7 @@ btnVolver.href = `clienteDetalle.html?id=${rutina.cliente.id}`
 const btnImprimir = document.createElement('button')
 btnImprimir.className = "botonImprimir"
 btnImprimir.textContent = "Imprimir Rutina"
-main.insertBefore(btnImprimir, listaEjercicios)
+zonaBotonImprimir.appendChild(btnImprimir)
 
 // ======== ELIMINAR UNA RUTINA =============== //
 document.getElementById('eliminarRutina').addEventListener('click', async () => {

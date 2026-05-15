@@ -783,6 +783,28 @@ td {
 }
 
 /*====== IMPRIMIR RUTINA ======*/
+.contenedor-boton-imprimir{
+  display: flex;
+  justify-content: center;
+}
+.botonImprimir {
+  width: 90px;
+  background-color: rgb(3, 138, 3);
+  color: white;
+  border: 2px rgb(3, 138, 3) solid;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out
+}
+
+.botonImprimir:hover{
+  background-color: #aaeeb3;
+  color: #122618;
+  transform: scale(1.1);
+}
+
 @media print {
   nav,
   footer,
@@ -790,7 +812,8 @@ td {
   .btn,
   .botones-editar-borrar,
   .btn-verde,
-  .site-nav, .btn-ver-mas {
+  .site-nav,
+  .btn-ver-mas {
     display: none;
   }
   @page {
