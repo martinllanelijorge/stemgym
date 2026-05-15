@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicios - STEM Gym</title>
+    <title>Formulario cliente - STEM Gym</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -22,17 +22,29 @@
             <a class="site-nav__link" href="index.html">Inicio</a>
             <a class="site-nav__link" href="clientes.html">Clientes</a>
             <a class="site-nav__link" href="musculos.html">Músculos</a>
-            <a class="site-nav__link pagina-actual" href="ejercicios.html">Ejercicios</a>
+            <a class="site-nav__link" href="ejercicios.html">Ejercicios</a>
         </nav>
     </header>
     <main>
-        <a class="btn-verde" href="formularioEjercicio.html?accion=crear">Añadir nuevo ejercicio</a>
-        <input type="text" id="buscador" placeholder="Buscar ejercicio...">
-        <div>
-            <ul id="listaEjercicios"></ul>
+        <div id="zonaBotonAtras"></div>
+        <!--FORMULARIO PARA EJERCICIO-->
+        <div class="contenedor-formulario">
+            <h1 id="tituloFormularioEjercicio"></h1>
+            <form class="formulario" id="formEjercicio">
+                <label class="formulario-label" for="nombre">NOMBRE DEL EJERCICIO</label>
+                <input class="formulario-input" name="nombre" id="nombre" placeholder="Ej: press banca" required><br><br>
+                <label class="formulario-label" for="descripcion">DESCRIPCIÓN</label>
+                <input class="formulario-input" name="descripcion" id="descripcion" placeholder="Se realiza tumbado ..." maxlength="1000" rows="4" required><br><br>
+                <label class="formulario-label" for="edad">MATERIALES</label>
+                <input class="formulario-input" name="materiales" id="materiales" placeholder="Mancuernas, banco, barra ..." maxlength="255" required><br><br>
+                <label class="formulario-label" for="urlImagen">IMAGEN URL</label>
+                <input class="formulario-input" name="urlImagen" id="urlImagen" type="url" placeholder="https://ejemplo.com" required><br><br>
+                <label class="formulario-label" for="urlImagen">VIDEO URL</label>
+                <input class="formulario-input" name="urlImagen" id="urlImagen" type="url" placeholder="https://ejemplo.com" required><br><br>
+                <button class="actualizar-crear" id="botonFormularioEjercicio"></button>
+            </form>
         </div>
     </main>
-
     <footer class="site-footer">
         <div class="site-footer-enlaces">
             <a href="https://www.instagram.com/balancegymboutique/" Target="_blank" class="site-footer-enlace"><img
@@ -45,6 +57,6 @@
         <a href="mailto:contacto@stemgym.com" class="site-footer-texto">Contacto: contacto@stemgym.com</a>
     </footer>
 </body>
-<script type="module" src="pages/ejercicios.js"></script>
+<script type="module" src="pages/formularioEjercicio.js"></script>
 
 </html>
