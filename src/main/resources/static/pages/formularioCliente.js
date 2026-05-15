@@ -70,7 +70,7 @@ document.getElementById('formCliente').onsubmit = async (elemento) => {
 // CAMBIA LOS TÍTULOS Y REDIRECCIONES DE BOTONES
 // QUIERE EDITAR
 if (accion === 'editar') {
-    cargarDatosClienteEnFormulario()
+    await cargarDatosClienteEnFormulario()
     titulo.textContent = "EDITAR CLIENTE"
     zonaBotonParaAtras.innerHTML = `<a class="btn-verde" href="clienteDetalle.html?id=${idCliente}">Volver</a>`
     botonFormulario.textContent = "Actualizar"

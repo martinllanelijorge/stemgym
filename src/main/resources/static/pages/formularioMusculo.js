@@ -68,7 +68,7 @@ document.getElementById('formMusculo').onsubmit = async (elemento) => {
 // CAMBIA LOS TÍTULOS Y REDIRECCIONES DE BOTONES
 // QUIERE EDITAR
 if (accion === 'editar') {
-    cargarDatosFormularioMusculo()
+    await cargarDatosFormularioMusculo()
     titulo.textContent = "EDITAR MÚSCULO"
     zonaBotonParaAtras.innerHTML = `<a class="btn-verde" href="musculoDetalle.html?id=${idMusculo}">Volver</a>`
     botonFormulario.textContent = "Actualizar"

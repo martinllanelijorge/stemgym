@@ -43,6 +43,23 @@ function crearEstructuraCheckboxesMusculosSecundarios(){
     return estructura
 }
 
+async function cargarDatosEjercicioEnFormulario(){
+// Realizamos petición GET para obtener un ejercicio específico
+    const ejercicioRedireccionado = await hacerFetch(`GET`, `/ejercicios/${idEjercicio}`)
+
+    // Rellenamos el formulario con los datos
+    form.nombre.value = ejercicioRedireccionado.nombre
+    form.descripcion.value = ejercicioRedireccionado.descripcion
+    form.materiales.value = ejercicioRedireccionado.material
+    form.urlImagen.value = ejercicioRedireccionado.urlImagen
+    form.urlVideo.value = ejercicioRedireccionado.urlVideo
+    form.musculoPrincipal.value = ejercicioRedireccionado.musculoPrincipal.id
+    // Se le agrega el check a cada musculo secundario del ejercicio
+    for (const musculo of ejercicioRedireccionado.musculosSecundarios) {
+        document.getElementById(`secundario_${musculo.id}`).checked = true
+    }
+}
+
 // ======== MAIN ========= //
 // zona donde se ubicará el botón de ir hacia atrás y creación del botón
 const zonaBotonParaAtras = document.getElementById("zonaBotonAtras")
@@ -98,7 +115,7 @@ document.getElementById('formEjercicio').onsubmit = async (elemento) => {
 // CAMBIA LOS TÍTULOS Y REDIRECCIONES DE BOTONES
 // QUIERE EDITAR
 if (accion === 'editar') {
-    cargarDatosEjercicioEnFormulario()
+    await cargarDatosEjercicioEnFormulario()
     titulo.textContent = "EDITAR EJERCICIO"
     zonaBotonParaAtras.innerHTML = `<a class="btn-verde" href="ejercicioDetalle.html?id=${idEjercicio}">Volver</a>`
     botonFormulario.textContent = "Actualizar"
