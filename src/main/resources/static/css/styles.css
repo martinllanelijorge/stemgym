@@ -575,6 +575,16 @@ h1 {
   color: #014b0b;
 }
 
+input[type="checkbox"] {
+  /*Para cambiar el estilo de los checbox del formulario*/
+  accent-color: #08a81d;
+  width: 15px;
+  height: 15px;
+}
+
+.contenedor-checkbox {
+  color: #027912;
+}
 /*======== BOTÓN VERDE COMÚN EN TODAS LAS PÁGINAS =========*/
 .btn-verde {
   display: inline-block; /*Para que no se bugue el botón (Hay algunos <a> inline)*/

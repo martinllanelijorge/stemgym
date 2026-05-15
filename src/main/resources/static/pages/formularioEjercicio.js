@@ -1,8 +1,9 @@
 import { hacerFetch } from '../utils/apiUtils.js'
 
-// Obtención de la id del cliente y parametros 
+// Obtención de la id del ejercicio y parametros 
 const parametros = new URLSearchParams(window.location.search)
 const idEjercicio = parametros.get('id')
+const accion = parametros.get('accion')
 
 // Localización del formulario, titulo y botón de formulario
 const form = document.getElementById('formEjercicio')
@@ -21,18 +22,17 @@ function nuevoElemento(elemento, estructura) {
 
 // Función para crear la estructura desplegable de todos los músculos, selección única
 function crearEstructuraSelectMusculoPrincipal(){
-    let estructura = `<select class="desplegable" name="musculoPrincipal" id="musculoPrincipal" required>`
+    let estructura = ""
     // Recorre todos los músculos
     for (const musculo of musculos) {
         estructura += `<option value="${musculo.id}">${musculo.nombre}</option>`
     }
-    estructura += `</select>`
     return estructura
 }
 
-// Nueva función: genera un contenedor con checkboxes independientes
+// Genera un contenedor con checkboxes 
 function crearEstructuraCheckboxesMusculosSecundarios(){
-    let estructura = `<div class="contenedor-checkbox" id="contenedorMusculosSecundarios">`
+    let estructura = ""
     for (const musculo of musculos) {
         estructura += `
         <div class="opcion-checkbox">
@@ -40,7 +40,6 @@ function crearEstructuraCheckboxesMusculosSecundarios(){
             <label for=secundario_${musculo.id}>${musculo.nombre}</label>
         </div>`
     }
-    estructura += `</div>`
     return estructura
 }
 
@@ -49,13 +48,23 @@ function crearEstructuraCheckboxesMusculosSecundarios(){
 const zonaBotonParaAtras = document.getElementById("zonaBotonAtras")
 zonaBotonParaAtras.innerHTML = `<a class="btn-verde" href="ejercicios.html">Volver</a>`
 
-
-
 // Se añaden las 2 nuevas secciones del formulario, para las elecciones de músculo principal y secundarios
-let labelMusculoPrincipal = nuevoElemento('label', `<label class="formulario-label" for="musculoPrincipal">MÚSCULO PRINCIPAL</label>`)
+
+// MÚSCULO PRINCIPAL - clase desplegable, required y nombre e id
+let labelMusculoPrincipal = nuevoElemento('label', 'MÚSCULO PRINCIPAL')
+labelMusculoPrincipal.className = "formulario-label" // Se le asigna la clase
 let inputMusculoPrincipal = nuevoElemento('select', crearEstructuraSelectMusculoPrincipal())
-let labelMusculosSecundarios = nuevoElemento('label', `<label class="formulario-label" for="musculosSecundarios">MÚSCULOS SECUNDARIOS (opcional)</label>`)
+inputMusculoPrincipal.className = "desplegable"
+inputMusculoPrincipal.name = "musculoPrincipal"
+inputMusculoPrincipal.id = "musculoPrincipal"
+inputMusculoPrincipal.required = true
+
+// MÚSCULOS SECUNDARIOS
+let labelMusculosSecundarios = nuevoElemento('label', 'MÚSCULOS SECUNDARIOS (opcional)')
+labelMusculosSecundarios.className = "formulario-label"
 let inputMusculosSecundarios = nuevoElemento('div', crearEstructuraCheckboxesMusculosSecundarios())
+inputMusculosSecundarios.className = "contenedor-checkbox"
+inputMusculosSecundarios.id = "contenedorMusculosSecundarios"
 
 // Insertamos en el formulario la nueva estructura
 form.insertBefore(labelMusculoPrincipal, botonFormulario)
