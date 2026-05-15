@@ -47,6 +47,12 @@ for (const ejercicio of rutina.ejercicios) {
 // Acción del botón volver para volver al cliente detalle
 btnVolver.href = `clienteDetalle.html?id=${rutina.cliente.id}`
 
+// Creación para el botón imprimir rutina
+const btnImprimir = document.createElement('button')
+btnImprimir.className = "botonImprimir"
+btnImprimir.textContent = "Imprimir Rutina"
+main.insertBefore(btnImprimir, listaEjercicios)
+
 // ======== ELIMINAR UNA RUTINA =============== //
 document.getElementById('eliminarRutina').addEventListener('click', async () => {
     // Pregunta al ususario por confirmación
@@ -55,5 +61,10 @@ document.getElementById('eliminarRutina').addEventListener('click', async () => 
         // Redirige a la web de musculos
         window.location.href = `clienteDetalle.html?id=${rutina.cliente.id}`
     }
+});
+
+// ======== ACCIÓN DE IMPRIMIR =============== //
+btnImprimir.addEventListener('click', () => {
+    window.print()
 });
 
