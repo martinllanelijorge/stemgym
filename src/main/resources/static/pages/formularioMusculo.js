@@ -42,6 +42,20 @@ function crearMusculoDesdeFormulario() {
 const zonaBotonParaAtras = document.getElementById("zonaBotonAtras")
 zonaBotonParaAtras.innerHTML = `<a class="btn-verde" href="musculos.html">Volver</a>`
 
+// Comprueba si se quiere editar el músculo o crear uno nuevo - Para cargar los datos
+// CAMBIA LOS TÍTULOS Y REDIRECCIONES DE BOTONES
+// QUIERE EDITAR
+if (accion === 'editar') {
+    await cargarDatosFormularioMusculo()
+    titulo.textContent = "EDITAR MÚSCULO"
+    zonaBotonParaAtras.innerHTML = `<a class="btn-verde" href="musculoDetalle.html?id=${idMusculo}">Volver</a>`
+    botonFormulario.textContent = "Actualizar"
+    // QUIERE CREAR
+} else {
+    titulo.textContent = "CREAR MÚSCULO"
+    botonFormulario.textContent = "Crear"
+}
+
 // Abdorción de datos
 document.getElementById('formMusculo').onsubmit = async (elemento) => {
 
@@ -64,16 +78,3 @@ document.getElementById('formMusculo').onsubmit = async (elemento) => {
     }
 }
 
-// Comprueba si se quiere editar el músculo o crear uno nuevo - Para cargar los datos
-// CAMBIA LOS TÍTULOS Y REDIRECCIONES DE BOTONES
-// QUIERE EDITAR
-if (accion === 'editar') {
-    await cargarDatosFormularioMusculo()
-    titulo.textContent = "EDITAR MÚSCULO"
-    zonaBotonParaAtras.innerHTML = `<a class="btn-verde" href="musculoDetalle.html?id=${idMusculo}">Volver</a>`
-    botonFormulario.textContent = "Actualizar"
-    // QUIERE CREAR
-} else {
-    titulo.textContent = "CREAR MÚSCULO"
-    botonFormulario.textContent = "Crear"
-}

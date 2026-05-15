@@ -44,6 +44,20 @@ function crearClienteDesdeFormulario() {
 const zonaBotonParaAtras = document.getElementById("zonaBotonAtras")
 zonaBotonParaAtras.innerHTML = `<a class="btn-verde" href="clientes.html">Volver</a>`
 
+// Comprueba si se quiere editar el ususario o crear uno nuevo - Para cargar los datos
+// CAMBIA LOS TÍTULOS Y REDIRECCIONES DE BOTONES
+// QUIERE EDITAR
+if (accion === 'editar') {
+    await cargarDatosClienteEnFormulario()
+    titulo.textContent = "EDITAR CLIENTE"
+    zonaBotonParaAtras.innerHTML = `<a class="btn-verde" href="clienteDetalle.html?id=${idCliente}">Volver</a>`
+    botonFormulario.textContent = "Actualizar"
+    // QUIERE CREAR
+} else {
+    titulo.textContent = "CREAR CLIENTE"
+    botonFormulario.textContent = "Crear"
+}
+
 // Abdorción de datos
 document.getElementById('formCliente').onsubmit = async (elemento) => {
 
@@ -66,18 +80,6 @@ document.getElementById('formCliente').onsubmit = async (elemento) => {
     }
 }
 
-// Comprueba si se quiere editar el ususario o crear uno nuevo - Para cargar los datos
-// CAMBIA LOS TÍTULOS Y REDIRECCIONES DE BOTONES
-// QUIERE EDITAR
-if (accion === 'editar') {
-    await cargarDatosClienteEnFormulario()
-    titulo.textContent = "EDITAR CLIENTE"
-    zonaBotonParaAtras.innerHTML = `<a class="btn-verde" href="clienteDetalle.html?id=${idCliente}">Volver</a>`
-    botonFormulario.textContent = "Actualizar"
-    // QUIERE CREAR
-} else {
-    titulo.textContent = "CREAR CLIENTE"
-    botonFormulario.textContent = "Crear"
-}
+
 
 

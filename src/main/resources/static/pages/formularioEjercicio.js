@@ -21,7 +21,7 @@ function nuevoElemento(elemento, estructura) {
 }
 
 // Función para crear la estructura desplegable de todos los músculos, selección única
-function crearEstructuraSelectMusculoPrincipal(){
+function crearEstructuraSelectMusculoPrincipal() {
     let estructura = ""
     // Recorre todos los músculos
     for (const musculo of musculos) {
@@ -31,7 +31,7 @@ function crearEstructuraSelectMusculoPrincipal(){
 }
 
 // Genera un contenedor con checkboxes 
-function crearEstructuraCheckboxesMusculosSecundarios(){
+function crearEstructuraCheckboxesMusculosSecundarios() {
     let estructura = ""
     for (const musculo of musculos) {
         estructura += `
@@ -43,8 +43,8 @@ function crearEstructuraCheckboxesMusculosSecundarios(){
     return estructura
 }
 
-async function cargarDatosEjercicioEnFormulario(){
-// Realizamos petición GET para obtener un ejercicio específico
+async function cargarDatosEjercicioEnFormulario() {
+    // Realizamos petición GET para obtener un ejercicio específico
     const ejercicioRedireccionado = await hacerFetch(`GET`, `/ejercicios/${idEjercicio}`)
 
     // Rellenamos el formulario con los datos
@@ -60,6 +60,45 @@ async function cargarDatosEjercicioEnFormulario(){
     }
 }
 
+// Función que permite extraer un objeto musculo del formulario, según el valor seleccionado
+function obtenerMusculoPrincipalFormulario() {
+    let musculoSeleccionado
+    // Compara las id de cada músculo y devuelve el que coincide
+    for (const musculo of musculos) {
+        if (musculo.id == form.musculoPrincipal.value) {
+            musculoSeleccionado = musculo
+        }
+    }
+    return musculoSeleccionado
+}
+
+// Función que permite extraer un array de musculos del formulario, según el valor o valores seleccionados
+function obtenerMusculosSecundariosFormulario() {
+    let musculosSeleccionados = []
+    // Comprueba si la casilla de check correspondiente al músculo está seleccionada, y si es así añade al músculo en el array
+    for (const musculo of musculos) {
+        if (document.getElementById(`secundario_${musculo.id}`).checked) {
+            musculosSeleccionados.push(musculo)
+        }
+    }
+    return musculosSeleccionados
+}
+
+// Función para la creación de ejercicios desde el formulario
+function crearEjercicioDesdeFormulario() {
+
+    let datosEjercicio = {
+        nombre: form.nombre.value,
+        descripcion: form.descripcion.value,
+        material: form.materiales.value,
+        urlImagen: form.urlImagen.value,
+        urlVideo: form.urlVideo.value,
+        musculoPrincipal: obtenerMusculoPrincipalFormulario(),
+        musculosSecundarios: obtenerMusculosSecundariosFormulario()
+    }
+    return datosEjercicio
+}
+
 // ======== MAIN ========= //
 // zona donde se ubicará el botón de ir hacia atrás y creación del botón
 const zonaBotonParaAtras = document.getElementById("zonaBotonAtras")
@@ -67,7 +106,7 @@ zonaBotonParaAtras.innerHTML = `<a class="btn-verde" href="ejercicios.html">Volv
 
 // Se añaden las 2 nuevas secciones del formulario, para las elecciones de músculo principal y secundarios
 
-// MÚSCULO PRINCIPAL - clase desplegable, required y nombre e id
+// MÚSCULO PRINCIPAL - clase desplegable, required y nombre e id Construcción del formulario
 let labelMusculoPrincipal = nuevoElemento('label', 'MÚSCULO PRINCIPAL')
 labelMusculoPrincipal.className = "formulario-label" // Se le asigna la clase
 let inputMusculoPrincipal = nuevoElemento('select', crearEstructuraSelectMusculoPrincipal())
@@ -76,7 +115,7 @@ inputMusculoPrincipal.name = "musculoPrincipal"
 inputMusculoPrincipal.id = "musculoPrincipal"
 inputMusculoPrincipal.required = true
 
-// MÚSCULOS SECUNDARIOS
+// MÚSCULOS SECUNDARIOS - CHECKBOX Construcción del formulario
 let labelMusculosSecundarios = nuevoElemento('label', 'MÚSCULOS SECUNDARIOS (opcional)')
 labelMusculosSecundarios.className = "formulario-label"
 let inputMusculosSecundarios = nuevoElemento('div', crearEstructuraCheckboxesMusculosSecundarios())
@@ -88,6 +127,21 @@ form.insertBefore(labelMusculoPrincipal, botonFormulario)
 form.insertBefore(inputMusculoPrincipal, botonFormulario)
 form.insertBefore(labelMusculosSecundarios, botonFormulario)
 form.insertBefore(inputMusculosSecundarios, botonFormulario)
+
+
+// Comprueba si se quiere editar el ejercicio o crear uno nuevo - Para cargar los datos
+// CAMBIA LOS TÍTULOS Y REDIRECCIONES DE BOTONES
+// QUIERE EDITAR
+if (accion === 'editar') {
+    await cargarDatosEjercicioEnFormulario()
+    titulo.textContent = "EDITAR EJERCICIO"
+    zonaBotonParaAtras.innerHTML = `<a class="btn-verde" href="ejercicioDetalle.html?id=${idEjercicio}">Volver</a>`
+    botonFormulario.textContent = "Actualizar"
+    // QUIERE CREAR
+} else {
+    titulo.textContent = "CREAR EJERCICIO"
+    botonFormulario.textContent = "Crear"
+}
 
 // Abdorción de datos
 document.getElementById('formEjercicio').onsubmit = async (elemento) => {
@@ -111,16 +165,4 @@ document.getElementById('formEjercicio').onsubmit = async (elemento) => {
     }
 }
 
-// Comprueba si se quiere editar el ejercicio o crear uno nuevo - Para cargar los datos
-// CAMBIA LOS TÍTULOS Y REDIRECCIONES DE BOTONES
-// QUIERE EDITAR
-if (accion === 'editar') {
-    await cargarDatosEjercicioEnFormulario()
-    titulo.textContent = "EDITAR EJERCICIO"
-    zonaBotonParaAtras.innerHTML = `<a class="btn-verde" href="ejercicioDetalle.html?id=${idEjercicio}">Volver</a>`
-    botonFormulario.textContent = "Actualizar"
-    // QUIERE CREAR
-} else {
-    titulo.textContent = "CREAR EJERCICIO"
-    botonFormulario.textContent = "Crear"
-}
+
