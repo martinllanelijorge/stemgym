@@ -13,6 +13,7 @@ const parametros = new URLSearchParams(window.location.search)
 const idEjercicio = parametros.get('id')
 const origen = parametros.get('origen')
 const idMusculo = parametros.get('musculoId')
+const idRutina = parametros.get('rutinaId')
 
 // Obtención de datos FETCH
 const ejercicio = await hacerFetch(`GET`, `/ejercicios/${idEjercicio}`)
@@ -81,8 +82,9 @@ document.getElementById('eliminarEjercicio').addEventListener('click', async () 
     }
 });
 
-
 // BOTÓN VOLVER - VUELVE AL MUSCULO SI VENIA DEL MUSCULO
 if (origen === "musculo") {
     btnVolver.href = `musculoDetalle.html?id=${idMusculo}`
+} else if (origen === "rutina"){
+    btnVolver.href = `rutinaDetalle.html?id=${idRutina}`
 }

@@ -497,6 +497,12 @@ h1 {
   border: none;
 }
 
+.botones-editar-borrar{
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
 /*======== FORMULARIO ========*/
 
 .contenedor-formulario {
@@ -757,4 +763,21 @@ td {
   border: 5px rgb(2, 194, 2) solid;
   border-radius: 16px;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+/*====== RUTINADETALLE ======*/
+
+#tituloRutina{
+  font-size: 70px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(1, 61, 1);
+}
+
+#frecuenciaRutina{
+  text-align: center;
+  font-weight: 600;
+  color: rgb(1, 61, 1);
+  margin-bottom: 10px;
 }
