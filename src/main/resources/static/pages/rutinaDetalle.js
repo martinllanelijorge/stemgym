@@ -5,6 +5,7 @@ const tituloRutina = document.getElementById("tituloRutina")
 const frecuenciaRutina = document.getElementById("frecuenciaRutina")
 const listaEjercicios = document.getElementById("listaEjercicios")
 const main = document.querySelector("main")
+const btnVolver = document.getElementById('volver')
 
 // Obtención de la id de la rutina y parametros
 const parametros = new URLSearchParams(window.location.search)
@@ -12,6 +13,11 @@ const idRutina = parametros.get('id')
 
 // Lista de rutinas de la api
 const rutina = await hacerFetch("GET", `/rutinas/${idRutina}`)
+
+// Función para eliminar una rutina
+async function eliminarRutina() {
+    await eliminarFetch(`/rutinas/${idRutina}`)
+}
 
 // ============== MAIN ================= //
 // Colocación de los datos en cada parte del html
@@ -23,7 +29,7 @@ const zonaBotonesEditarBorrar = document.createElement('div')
 zonaBotonesEditarBorrar.innerHTML = `  
     <div class="botones-editar-borrar">
         <a class="btn btn-editar" href="formularioRutina.html?id=${rutina.id}&accion=editar">Editar</a>
-        <button class="btn btn-borrar" id="eliminarEjercicio">Borrar</button>
+        <button class="btn btn-borrar" id="eliminarRutina">Borrar</button>
     </div>`
 
 main.insertBefore(zonaBotonesEditarBorrar, listaEjercicios)
@@ -36,5 +42,18 @@ for (const ejercicio of rutina.ejercicios) {
         <h2>${ejercicio.nombre}</h2>
         <a href="ejercicioDetalle.html?id=${ejercicio.id}&origen=rutina&rutinaId=${idRutina}" class="btn-ver-mas">Ver más</a>
      </li>`
-    
 }
+
+// Acción del botón volver para volver al cliente detalle
+btnVolver.href = `clienteDetalle.html?id=${rutina.cliente.id}`
+
+// ======== ELIMINAR UNA RUTINA =============== //
+document.getElementById('eliminarRutina').addEventListener('click', async () => {
+    // Pregunta al ususario por confirmación
+    if (confirm(`¿Está seguro de que desea eliminar la rutina ${rutina.nombre} de la base de datos?`)) {
+        await eliminarRutina()
+        // Redirige a la web de musculos
+        window.location.href = `clienteDetalle.html?id=${rutina.cliente.id}`
+    }
+});
+

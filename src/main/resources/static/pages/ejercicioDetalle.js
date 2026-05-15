@@ -75,7 +75,7 @@ zonaVideoEjercicio.innerHTML = `
 // ======== ELIMINAR UN EJERCICIO =============== //
 document.getElementById('eliminarEjercicio').addEventListener('click', async () => {
     // Pregunta al ususario por confirmación
-    if (confirm(`¿Está seguro de que desea eliminar a ${ejercicio.nombre} de la base de datos ? `)) {
+    if (confirm(`¿Está seguro de que desea eliminar a ${ejercicio.nombre} de la base de datos?`)) {
         await eliminarEjercicio(idEjercicio)
         // Redirige a la web de musculos
         window.location.href = "ejercicios.html";
