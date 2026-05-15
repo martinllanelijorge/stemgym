@@ -21,7 +21,7 @@ const musculosSecundarios = ejercicio.musculosSecundarios // Es un array
 
 // ============= FUNCIONES =============== //
 async function eliminarEjercicio(id){
-    await eliminarFetch(`/musculos/${id}`)
+    await eliminarFetch(`/ejercicios/${id}`)
 }
 
 //============== MAIN =============== //
