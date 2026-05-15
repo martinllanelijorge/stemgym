@@ -497,7 +497,7 @@ h1 {
   border: none;
 }
 
-.botones-editar-borrar{
+.botones-editar-borrar {
   display: flex;
   gap: 5px;
   justify-content: center;
@@ -767,7 +767,7 @@ td {
 
 /*====== RUTINADETALLE ======*/
 
-#tituloRutina{
+#tituloRutina {
   font-size: 70px;
   font-weight: 700;
   text-align: center;
@@ -775,9 +775,34 @@ td {
   color: rgb(1, 61, 1);
 }
 
-#frecuenciaRutina{
+#frecuenciaRutina {
   text-align: center;
   font-weight: 600;
   color: rgb(1, 61, 1);
   margin-bottom: 10px;
+}
+
+/*====== IMPRIMIR RUTINA ======*/
+@media print {
+  nav,
+  footer,
+  button,
+  .btn,
+  .botones-editar-borrar,
+  .btn-verde,
+  .site-nav, .btn-ver-mas {
+    display: none;
+  }
+  @page {
+    size: auto; /* tamaño, según navegador */
+    margin: 5mm;
+  }
+
+  /* Ajustes para que se vea la rutina al completo sin problemas*/
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    zoom: 80%;
+  }
 }
