@@ -29,7 +29,7 @@ frecuenciaRutina.textContent = `Cantidad de veces a repetir por semana: ${rutina
 const zonaBotonesEditarBorrar = document.createElement('div')
 zonaBotonesEditarBorrar.innerHTML = `  
     <div class="botones-editar-borrar">
-        <a class="btn btn-editar" href="formularioRutina.html?id=${rutina.id}&accion=editar">Editar</a>
+        <a class="btn btn-editar" href="formularioRutina.html?idCliente=${rutina.cliente.id}&idRutina=${rutina.id}&accion=editar">Editar</a>
         <button class="btn btn-borrar" id="eliminarRutina">Borrar</button>
     </div>`
 
