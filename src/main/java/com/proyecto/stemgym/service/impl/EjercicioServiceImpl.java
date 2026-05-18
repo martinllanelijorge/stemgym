@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.proyecto.stemgym.entity.Ejercicio;
+import com.proyecto.stemgym.entity.Rutina;
 import com.proyecto.stemgym.repository.EjercicioRepository;
+import com.proyecto.stemgym.repository.RutinaRepository;
 import com.proyecto.stemgym.service.EjercicioService;
 
 /**
@@ -28,6 +30,9 @@ public class EjercicioServiceImpl implements EjercicioService {
 
     @Autowired
     private EjercicioRepository ejercicioRepository;
+
+    @Autowired
+    private RutinaRepository rutinaRepository;
 
     /**
      * Método para obtener todos los ejercicios existentes en la BBDD
@@ -105,7 +110,9 @@ public class EjercicioServiceImpl implements EjercicioService {
     /**
      * Método para eliminar un ejercicio de la BBDD
      * <p>
-     * Este método permite eliminar un ejercicio de la BBDD mediante su id
+     * Este método permite eliminar un ejercicio de la BBDD mediante su id.
+     * Antes de eliminarlo, borra todas las rutinas que lo contengan para evitar
+     * conflictos con la tabla intermedia rutina_ejercicio.
      * </p>
      * 
      * @param id id del ejercicio que se desea eliminar
@@ -114,6 +121,8 @@ public class EjercicioServiceImpl implements EjercicioService {
      */
     @Override
     public void eliminarEjercicio(Long id) {
+        List<Rutina> rutinas = rutinaRepository.findByEjerciciosId(id);
+        rutinaRepository.deleteAll(rutinas);
         ejercicioRepository.deleteById(id);
     }
 
