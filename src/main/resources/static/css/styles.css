@@ -470,6 +470,11 @@ h1 {
   font-weight: 800;
   color: white;
 }
+
+.tarjeta-azul{
+  background-color: rgb(46, 161, 255);
+  border-color: rgb(27, 129, 212);
+}
 /*====== BOTONES EDITAR Y BORRAR ======*/
 
 .btn {
@@ -627,12 +632,23 @@ input[type="checkbox"] {
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
 }
 
-.btn-mas:hover{
+.btn-menos {
+  background-color: rgb(255, 0, 0);
+  border: 2px rgb(168, 3, 3) solid;
+  border-radius: 18px;
+  color: white;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: 5px;  
+  font-size: 20px;
+  font-weight: 600;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-mas:hover, .btn-menos:hover{
   cursor: pointer;
   transform: scale(1.1)
 }
-
-
 /*======== BOTÓN VERDE COMÚN EN TODAS LAS PÁGINAS =========*/
 .btn-verde {
   display: inline-block; /*Para que no se bugue el botón (Hay algunos <a> inline)*/
