@@ -591,6 +591,48 @@ input[type="checkbox"] {
 .contenedor-checkbox {
   color: #027912;
 }
+
+/*========= FORMULARIO RUTINA ==========*/
+.formulario-rutina {
+  width: 1400px;
+}
+
+#zonaCajasEjercicios {
+  display: flex;
+  gap: 30px;
+}
+
+#rutinaActual,
+#ejerciciosDisponibles {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  flex: 1;
+  border: 2px green solid;
+  border-radius: 16px;
+  padding: 5px;
+  justify-content: center;
+}
+
+.btn-mas {
+  background-color: rgb(243, 158, 0);
+  border: 2px rgb(168, 110, 3) solid;
+  border-radius: 18px;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 1px;  
+  font-size: 20px;
+  font-weight: 600;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-mas:hover{
+  cursor: pointer;
+  transform: scale(1.1)
+}
+
+
 /*======== BOTÓN VERDE COMÚN EN TODAS LAS PÁGINAS =========*/
 .btn-verde {
   display: inline-block; /*Para que no se bugue el botón (Hay algunos <a> inline)*/
@@ -783,7 +825,7 @@ td {
 }
 
 /*====== IMPRIMIR RUTINA ======*/
-.contenedor-boton-imprimir{
+.contenedor-boton-imprimir {
   display: flex;
   justify-content: center;
 }
@@ -796,10 +838,10 @@ td {
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out
+  transition: transform 0.3s ease-in-out;
 }
 
-.botonImprimir:hover{
+.botonImprimir:hover {
   background-color: #aaeeb3;
   color: #122618;
   transform: scale(1.1);
