@@ -9,4 +9,6 @@ import com.proyecto.stemgym.entity.Musculo;
 
 public interface EjercicioRepository extends JpaRepository<Ejercicio, Long> {
     List<Ejercicio> findByMusculosSecundariosContaining(Musculo musculo);
+
+    List<Ejercicio> findByMusculoPrincipal(Musculo musculo);
 }
