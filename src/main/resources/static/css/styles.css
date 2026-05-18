@@ -617,6 +617,7 @@ input[type="checkbox"] {
   border-radius: 16px;
   padding: 5px;
   justify-content: center;
+  align-content: flex-start;
 }
 
 .btn-mas {
