@@ -111,18 +111,22 @@ public class EjercicioServiceImpl implements EjercicioService {
      * Método para eliminar un ejercicio de la BBDD
      * <p>
      * Este método permite eliminar un ejercicio de la BBDD mediante su id.
-     * Antes de eliminarlo, borra todas las rutinas que lo contengan para evitar
-     * conflictos con la tabla intermedia rutina_ejercicio.
+     * Antes de eliminarlo, lo elimina de todas las rutinas que lo contengan
+     * para evitar conflictos con la tabla intermedia rutina_ejercicio.
      * </p>
-     * 
+     *
      * @param id id del ejercicio que se desea eliminar
-     * 
      * @since 1.0
      */
     @Override
     public void eliminarEjercicio(Long id) {
+        Ejercicio ejercicio = obtenerEjercicioPorId(id);
         List<Rutina> rutinas = rutinaRepository.findByEjerciciosId(id);
-        rutinaRepository.deleteAll(rutinas);
+        // De cada rutina que contenga el ejercicio, elimina el ejercicio
+        for (Rutina rutina : rutinas) {
+            rutina.getEjercicios().remove(ejercicio);
+        }
+        rutinaRepository.saveAll(rutinas);
         ejercicioRepository.deleteById(id);
     }
 
