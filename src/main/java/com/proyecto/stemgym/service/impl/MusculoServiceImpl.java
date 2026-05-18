@@ -1,17 +1,12 @@
 package com.proyecto.stemgym.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.proyecto.stemgym.entity.Ejercicio;
 import com.proyecto.stemgym.entity.Musculo;
-import com.proyecto.stemgym.entity.Rutina;
-import com.proyecto.stemgym.repository.EjercicioRepository;
 import com.proyecto.stemgym.repository.MusculoRepository;
-import com.proyecto.stemgym.repository.RutinaRepository;
 import com.proyecto.stemgym.service.MusculoService;
 
 /**
@@ -34,10 +29,7 @@ public class MusculoServiceImpl implements MusculoService {
     private MusculoRepository musculoRepository;
 
     @Autowired
-    private EjercicioRepository ejercicioRepository;
-
-    @Autowired
-    private RutinaRepository rutinaRepository;
+    private EjercicioServiceImpl ejercicioServiceImpl;
 
     /**
      * Método para actualizar un músculo
@@ -86,11 +78,8 @@ public class MusculoServiceImpl implements MusculoService {
     /**
      * Método para eliminar un músculo de la BBDD
      * <p>
-     * Este método permite eliminar un músculo de la BBDD mediante su id.
-     * Antes de eliminarlo, elimina los ejercicios afectados (donde el músculo
-     * aparece como principal o secundario) de las rutinas que los contengan,
-     * y después borra dichos ejercicios. Los ejercicios donde el músculo es
-     * principal se eliminan por la cascada definida en {@link Musculo}.
+     * Antes de eliminarlo, elimina todos los ejercicios que lo tengan como
+     * músculo principal o secundario, limpiando también sus apariciones en rutinas.
      * </p>
      *
      * @param id id del músculo que se desea eliminar
@@ -99,26 +88,7 @@ public class MusculoServiceImpl implements MusculoService {
     @Override
     public void eliminarMusculo(Long id) {
         Musculo musculo = obtenerMusculoPorId(id);
-
-        List<Ejercicio> ejerciciosConSecundario = ejercicioRepository.findByMusculosSecundariosContaining(musculo);
-        List<Ejercicio> ejerciciosPrincipal = ejercicioRepository.findByMusculoPrincipal(musculo);
-
-        List<Ejercicio> todosAfectados = new ArrayList<>();
-        todosAfectados.addAll(ejerciciosConSecundario);
-        todosAfectados.addAll(ejerciciosPrincipal);
-
-        // Quita los ejercicios afectados de todas las rutinas y guarda
-        List<Rutina> todasLasRutinas = rutinaRepository.findAll();
-        for (Rutina rutina : todasLasRutinas) {
-            rutina.getEjercicios().removeAll(todosAfectados);
-        }
-        rutinaRepository.saveAll(todasLasRutinas);
-
-        // Borra los ejercicios secundarios (los principales los borra la
-        // cascada que ya se puso en musculo)
-        ejercicioRepository.deleteAll(ejerciciosConSecundario);
-
-        // Borrar el músculo (cascada borra los ejercicios principales)
+        ejercicioServiceImpl.eliminarEjerciciosDeMusculo(musculo);
         musculoRepository.deleteById(id);
     }
 

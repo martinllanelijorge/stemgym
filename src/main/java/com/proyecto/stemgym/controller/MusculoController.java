@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.proyecto.stemgym.entity.Ejercicio;
 import com.proyecto.stemgym.entity.Musculo;
-import com.proyecto.stemgym.entity.Rutina;
 import com.proyecto.stemgym.service.MusculoService;
 
 /**
