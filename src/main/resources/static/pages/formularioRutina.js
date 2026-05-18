@@ -25,6 +25,14 @@ function crearTarjetaEjercicioRutina(ejercicio) {
         <h2>${ejercicio.nombre}</h2>
         <button class="btn-menos">-</button> 
     `
+    // Agrega funcionalidad al botón menos
+    const botonMenos = nuevaTarjeta.querySelector('.btn-menos')
+
+    // Elimina la tarjeta si le da al botón menos
+    botonMenos.addEventListener('click', () => {
+        nuevaTarjeta.remove()
+    })
+
     nuevaTarjeta.className = "tarjeta-pequenia tarjeta-azul"
     return nuevaTarjeta
 }
