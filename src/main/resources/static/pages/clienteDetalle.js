@@ -45,7 +45,7 @@ zonaDatosCliente.innerHTML = `
     </div>`
 
 // Acceso a creación de una nueva rutina
-zonaNuevaRutina.innerHTML = `<a class="btn-verde" href="formularioRutina.html?idCliente=${cliente.id}">Crear nueva rutina</a>`
+zonaNuevaRutina.innerHTML = `<a class="btn-verde" href="formularioRutina.html?idCliente=${cliente.id}&accion=crear">Crear nueva rutina</a>`
 
 // HAY RUTINA DEL CLIENTE
 if (listaRutinas.length > 0) {

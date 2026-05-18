@@ -31,7 +31,7 @@ function crearTarjetaEjercicioRutina(ejercicio) {
     nuevaTarjeta.innerHTML = `
         <img src="${ejercicio.urlImagen}">
         <h2>${ejercicio.nombre}</h2>
-        <button class="btn-menos">-</button> 
+        <button class="btn-menos" type="button">-</button> 
     `
     // Agrega el id al dataset para usarlo en la construcción del array posterior
     nuevaTarjeta.dataset.id = ejercicio.id
@@ -55,6 +55,7 @@ function agregarEjercicioAZonaRutina(ejercicio) {
 
 // Función para agregar los ejercicios al array de ejercicios de la rutina
 function agregarEjerciciosAArrayRutina() {
+    ejerciciosRutina = []
     // Recorre todos los ejercicios de la caja de la rutina
     for (const ejercicioSeleccionado of zonaRutinaActual.children) {
         // Compara el dataset id y el id del ejercicio y lo agrega si son iguales
@@ -71,7 +72,7 @@ function crearRutinaDesdeFormulario() {
     agregarEjerciciosAArrayRutina()
     let rutina = {
         nombre: form.nombre.value,
-        frecuenciaSemanal: form.frecuenciaSemanal.value,
+        frecuenciaSemanal: Number(form.frecuenciaSemanal.value),
         cliente: cliente,
         ejercicios: ejerciciosRutina
     }
@@ -100,7 +101,7 @@ for (const ejercicio of ejerciciosDisponibles) {
     li.innerHTML = `
         <img src="${ejercicio.urlImagen}">
         <h2>${ejercicio.nombre}</h2>
-        <button class="btn-mas">+</button>
+        <button class="btn-mas" type="button">+</button>
     `
 
     // Asignación de la función del botón más
