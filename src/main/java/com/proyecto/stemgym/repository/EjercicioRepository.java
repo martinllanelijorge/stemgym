@@ -10,6 +10,8 @@ import org.springframework.data.repository.query.Param;
 import com.proyecto.stemgym.entity.Ejercicio;
 import com.proyecto.stemgym.entity.Musculo;
 
+import jakarta.transaction.Transactional;
+
 public interface EjercicioRepository extends JpaRepository<Ejercicio, Long> {
     List<Ejercicio> findByMusculosSecundariosContaining(Musculo musculo);
 
@@ -18,6 +20,7 @@ public interface EjercicioRepository extends JpaRepository<Ejercicio, Long> {
     /**
      * Elimina de ejercicio_musculo_secundario todas las filas del ejercicio
      */
+    @Transactional
     @Modifying
     @Query(value = "DELETE FROM ejercicio_musculo_secundario WHERE ejercicio_id = :ejercicioId", nativeQuery = true)
     void eliminarMusculosSecundarios(@Param("ejercicioId") Long ejercicioId);
@@ -25,6 +28,7 @@ public interface EjercicioRepository extends JpaRepository<Ejercicio, Long> {
     /** 
      * Elimina de ejercicio_musculo_secundario todas las filas del músculo dado 
      */
+    @Transactional
     @Modifying
     @Query(value = "DELETE FROM ejercicio_musculo_secundario WHERE musculo_id = :musculoId", nativeQuery = true)
     void eliminarPorMusculoSecundario(@Param("musculoId") Long musculoId);
@@ -32,6 +36,7 @@ public interface EjercicioRepository extends JpaRepository<Ejercicio, Long> {
     /** 
      * Elimina de rutina_ejercicio todas las filas de los ejercicios dados 
      */
+    @Transactional
     @Modifying
     @Query(value = "DELETE FROM rutina_ejercicio WHERE ejercicio_id IN :ids", nativeQuery = true)
     void eliminarDeRutinasPorLista(@Param("ids") List<Long> ids);

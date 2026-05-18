@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.proyecto.stemgym.entity.Ejercicio;
 import com.proyecto.stemgym.entity.Musculo;
-import com.proyecto.stemgym.entity.Rutina;
 import com.proyecto.stemgym.repository.EjercicioRepository;
-import com.proyecto.stemgym.repository.RutinaRepository;
 import com.proyecto.stemgym.service.EjercicioService;
+
+import jakarta.transaction.Transactional;
 
 /**
  * Clase que implementa {@link EjercicioService} para desarrollar los métodos
@@ -32,9 +32,6 @@ public class EjercicioServiceImpl implements EjercicioService {
 
     @Autowired
     private EjercicioRepository ejercicioRepository;
-
-    @Autowired
-    private RutinaRepository rutinaRepository;
 
     /**
      * Método para obtener todos los ejercicios existentes en la BBDD
@@ -113,24 +110,23 @@ public class EjercicioServiceImpl implements EjercicioService {
      * Método para eliminar un ejercicio de la BBDD
      * <p>
      * Este método permite eliminar un ejercicio de la BBDD mediante su id.
-     * Antes de eliminarlo, lo elimina de todas las rutinas que lo contengan
-     * y limpia su tabla de músculos secundarios para evitar conflictos de FK.
+     * Antes de eliminarlo, lo elimina de todas las rutinas que lo tienen.
      * </p>
      *
      * @param id id del ejercicio que se desea eliminar
      * @since 1.0
      */
     @Override
+    @Transactional
     public void eliminarEjercicio(Long id) {
-        Ejercicio ejercicio = obtenerEjercicioPorId(id);
-        // Busca las rutinas con esos ejercicios y elimina los ejercicios de esas
-        // rutinas
-        List<Rutina> rutinas = rutinaRepository.findByEjerciciosId(id);
-        for (Rutina rutina : rutinas) {
-            rutina.getEjercicios().remove(ejercicio);
-        }
-        rutinaRepository.saveAll(rutinas);
-        // Elimina los ejercicios que tiene los musculos secundarios
+        obtenerEjercicioPorId(id);
+
+
+        List<Long> idsEjercicios = new ArrayList<>();
+        idsEjercicios.add(id);
+
+        // Elimina los ejercicios de las rutinas y elimina los musculos secundarios, los primarios tienen cascade
+        ejercicioRepository.eliminarDeRutinasPorLista(idsEjercicios);
         ejercicioRepository.eliminarMusculosSecundarios(id);
         ejercicioRepository.deleteById(id);
     }
@@ -147,11 +143,12 @@ public class EjercicioServiceImpl implements EjercicioService {
      * @param musculo músculo cuyos ejercicios se desean eliminar
      * @since 1.0
      */
+    @Transactional
     public void eliminarEjerciciosDeMusculo(Musculo musculo) {
         List<Ejercicio> principal = ejercicioRepository.findByMusculoPrincipal(musculo);
         List<Ejercicio> secundario = ejercicioRepository.findByMusculosSecundariosContaining(musculo);
 
-        // Guarda las ids de los ejercicios que contengan el músculo (sin repetir)
+        // Guarda las ids de los ejercicios que contengan el músculo
         List<Long> idsEjercicios = new ArrayList<>();
         for (Ejercicio ejercicio : principal) {
             idsEjercicios.add(ejercicio.getId());
@@ -162,8 +159,7 @@ public class EjercicioServiceImpl implements EjercicioService {
             }
         }
 
-        // Elimina los ejercicios de las rutinas (solo los ejercicios que queremos
-        // eliminar)
+        // Elimina los ejercicios de las rutinas
         if (!idsEjercicios.isEmpty()) {
             ejercicioRepository.eliminarDeRutinasPorLista(idsEjercicios);
             for (Long ejercicioId : idsEjercicios) {
@@ -172,7 +168,7 @@ public class EjercicioServiceImpl implements EjercicioService {
             ejercicioRepository.deleteAllById(idsEjercicios);
         }
 
-        // Limpiar ejercicios que sobreviven pero tenían al músculo como secundario
+        // Limpiar ejercicios que tenían al músculo como secundario
         ejercicioRepository.eliminarPorMusculoSecundario(musculo.getId());
     }
 

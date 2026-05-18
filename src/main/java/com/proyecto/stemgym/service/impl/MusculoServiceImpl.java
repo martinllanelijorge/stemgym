@@ -9,6 +9,8 @@ import com.proyecto.stemgym.entity.Musculo;
 import com.proyecto.stemgym.repository.MusculoRepository;
 import com.proyecto.stemgym.service.MusculoService;
 
+import jakarta.transaction.Transactional;
+
 /**
  * Clase que implementa {@link MusculoService} para desarrollar los métodos GET,
  * POST, PUT y DELETE.
@@ -86,6 +88,7 @@ public class MusculoServiceImpl implements MusculoService {
      * @since 1.0
      */
     @Override
+    @Transactional
     public void eliminarMusculo(Long id) {
         Musculo musculo = obtenerMusculoPorId(id);
         ejercicioServiceImpl.eliminarEjerciciosDeMusculo(musculo);
