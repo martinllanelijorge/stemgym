@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.proyecto.stemgym.entity.Ejercicio;
 import com.proyecto.stemgym.entity.Musculo;
+import com.proyecto.stemgym.repository.EjercicioRepository;
 import com.proyecto.stemgym.repository.MusculoRepository;
 import com.proyecto.stemgym.service.MusculoService;
 
@@ -27,6 +29,9 @@ public class MusculoServiceImpl implements MusculoService {
 
     @Autowired
     private MusculoRepository musculoRepository;
+
+    @Autowired
+    private EjercicioRepository ejercicioRepository;
 
     /**
      * Método para actualizar un músculo
@@ -75,7 +80,10 @@ public class MusculoServiceImpl implements MusculoService {
     /**
      * Método para eliminar un músculo de la BBDD
      * <p>
-     * Este método permite eliminar un músculo de la BBDD mediante su id
+     * Este método permite eliminar un músculo de la BBDD mediante su id.
+     * Antes de eliminarlo, borra todos los ejercicios donde el músculo
+     * aparece como secundario. Los ejercicios donde es principal se
+     * eliminan automáticamente por la cascada definida en {@link Musculo}.
      * </p>
      * 
      * @param id id del músculo que se desea eliminar
@@ -84,8 +92,10 @@ public class MusculoServiceImpl implements MusculoService {
      */
     @Override
     public void eliminarMusculo(Long id) {
+        Musculo musculo = obtenerMusculoPorId(id);
+        List<Ejercicio> ejerciciosConSecundario = ejercicioRepository.findByMusculosSecundariosContaining(musculo);
+        ejercicioRepository.deleteAll(ejerciciosConSecundario);
         musculoRepository.deleteById(id);
-
     }
 
     /**
