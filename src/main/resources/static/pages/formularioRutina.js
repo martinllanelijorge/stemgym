@@ -56,7 +56,7 @@ function agregarEjercicioAZonaRutina(ejercicio) {
 // Función para agregar los ejercicios al array de ejercicios de la rutina
 function agregarEjerciciosAArrayRutina() {
     // Recorre todos los ejercicios de la caja de la rutina
-    for (const ejercicioSeleccionado of zonaRutinaActual) {
+    for (const ejercicioSeleccionado of zonaRutinaActual.children) {
         // Compara el dataset id y el id del ejercicio y lo agrega si son iguales
         for (const ejercicioDisponible of ejerciciosDisponibles) {
             if (ejercicioDisponible.id == ejercicioSeleccionado.dataset.id) {
@@ -75,6 +75,8 @@ function crearRutinaDesdeFormulario() {
         cliente: cliente,
         ejercicios: ejerciciosRutina
     }
+
+    return rutina
 }
 
 // Función para cargar los datos de la rutina editable
