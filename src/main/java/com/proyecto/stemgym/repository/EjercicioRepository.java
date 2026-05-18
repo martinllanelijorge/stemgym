@@ -26,7 +26,7 @@ public interface EjercicioRepository extends JpaRepository<Ejercicio, Long> {
     void eliminarMusculosSecundarios(@Param("ejercicioId") Long ejercicioId);
 
     /** 
-     * Elimina de ejercicio_musculo_secundario todas las filas del músculo dado 
+     * Elimina de ejercicio_musculo_secundario todas las filas del músculo 
      */
     @Transactional
     @Modifying
@@ -34,7 +34,7 @@ public interface EjercicioRepository extends JpaRepository<Ejercicio, Long> {
     void eliminarPorMusculoSecundario(@Param("musculoId") Long musculoId);
 
     /** 
-     * Elimina de rutina_ejercicio todas las filas de los ejercicios dados 
+     * Elimina de rutina_ejercicio todas las filas de los ejercicios 
      */
     @Transactional
     @Modifying
