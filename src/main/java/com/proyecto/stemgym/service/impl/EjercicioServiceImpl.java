@@ -13,7 +13,6 @@ import com.proyecto.stemgym.repository.EjercicioRepository;
 import com.proyecto.stemgym.repository.RutinaRepository;
 import com.proyecto.stemgym.service.EjercicioService;
 
-
 /**
  * Clase que implementa {@link EjercicioService} para desarrollar los métodos
  * GET,
@@ -124,7 +123,8 @@ public class EjercicioServiceImpl implements EjercicioService {
     @Override
     public void eliminarEjercicio(Long id) {
         Ejercicio ejercicio = obtenerEjercicioPorId(id);
-        // Busca las rutinas con esos ejercicios y elimina los ejercicios de esas rutinas
+        // Busca las rutinas con esos ejercicios y elimina los ejercicios de esas
+        // rutinas
         List<Rutina> rutinas = rutinaRepository.findByEjerciciosId(id);
         for (Rutina rutina : rutinas) {
             rutina.getEjercicios().remove(ejercicio);
@@ -151,7 +151,7 @@ public class EjercicioServiceImpl implements EjercicioService {
         List<Ejercicio> principal = ejercicioRepository.findByMusculoPrincipal(musculo);
         List<Ejercicio> secundario = ejercicioRepository.findByMusculosSecundariosContaining(musculo);
 
-        // Unir sin duplicados
+        // Guarda las ids de los ejercicios que contengan el músculo (sin repetir)
         List<Long> idsEjercicios = new ArrayList<>();
         for (Ejercicio ejercicio : principal) {
             idsEjercicios.add(ejercicio.getId());
@@ -162,6 +162,8 @@ public class EjercicioServiceImpl implements EjercicioService {
             }
         }
 
+        // Elimina los ejercicios de las rutinas (solo los ejercicios que queremos
+        // eliminar)
         if (!idsEjercicios.isEmpty()) {
             ejercicioRepository.eliminarDeRutinasPorLista(idsEjercicios);
             for (Long ejercicioId : idsEjercicios) {
