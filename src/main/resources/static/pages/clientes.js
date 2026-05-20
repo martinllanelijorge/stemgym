@@ -1,11 +1,17 @@
 import { hacerFetch } from '../utils/apiUtils.js'
 
-// Lugar donde se va a almacenar la lista
+// CONTENEDORES DOM
+const main = document.querySelector("main")
+const contenedorClientes = document.getElementById("contenedorLista")
 const zonaListaClientes = document.getElementById("listaClientes")
+const buscadorCliente = document.getElementById("buscador")
+
 // Lista de clientes de la api
 const clientes = await hacerFetch("GET", "/clientes")
-// Buscador de clientes
-const buscadorCliente = document.getElementById("buscador")
+
+// Obtención del parametro de cliente eliminado
+const parametros = new URLSearchParams(window.location.search)
+const clienteEliminado = parametros.get('clienteEliminado')
 
 // Construcción de la lista en el html
 zonaListaClientes.innerHTML = ""
@@ -26,10 +32,21 @@ function mostrarPorNombreBuscador(textoBusqueda, elementos) {
         }
     }
 }
+// Crea un mensaje de éxito al borrar el cliente
+function aniadirMensajeClienteEliminado(){
+    const mensajeEliminado = document.createElement('p')
+    main.insertBefore(mensajeEliminado, contenedorClientes)
+    mensajeEliminado.innerHTML = `<p class="eliminado">✅<strong>ÉXITO</strong><br>El cliente se eliminó con éxito</p>`
+}
+// ============== MAIN ================ //
 
+// Pone mensaje de cliente eliminado si viene de eliminar un cliente
+if (clienteEliminado) {
+    aniadirMensajeClienteEliminado()
+}
 // Añade los clientes en lista al cargar la página
 if (clientes.length === 0) {
-    zonaListaClientes.innerHTML = `<li class="advertencia">⚠️<strong> Advertencia</strong><br>No se han encontrado clientes</li>`
+    zonaListaClientes.innerHTML += `<li class="advertencia">⚠️<strong> Advertencia</strong><br>No se han encontrado clientes</li>`
 } else {
     for (let cliente of clientes) {
         zonaListaClientes.innerHTML += `

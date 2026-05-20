@@ -66,8 +66,8 @@ document.getElementById('eliminarCliente').addEventListener('click', async () =>
     // Pregunta al ususario por confirmación
     if (confirm(`¿Está seguro de que desea eliminar a ${cliente.nombre} de la base de datos?`)) {
         await eliminarCliente(idCliente)
-        // Redirige a la web de clientes
-        window.location.href = "clientes.html";
+        // Redirige a la web de clientes        
+        window.location.href = "clientes.html?clienteEliminado=true";
     }
 });
 
