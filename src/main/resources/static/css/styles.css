@@ -848,8 +848,20 @@ td {
   background-color: grey;
 }
 
-.deshabilitado:hover{
+.deshabilitado:hover {
   transform: scale(1);
+}
+
+/*========== MENSAJE EXITO ==========*/
+.exito {
+  background-color: rgb(179, 253, 185);
+  text-align: justify;
+  font-size: 14px;
+  border-radius: 10px;
+  border-bottom: 5px solid rgb(79, 240, 92);
+  padding: 10px 30px 10px 30px;
+  width: 35%;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
 }
 
 /*====== IMPRIMIR RUTINA ======*/

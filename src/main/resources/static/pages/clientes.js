@@ -36,7 +36,7 @@ function mostrarPorNombreBuscador(textoBusqueda, elementos) {
 function aniadirMensajeClienteEliminado(){
     const mensajeEliminado = document.createElement('p')
     main.insertBefore(mensajeEliminado, contenedorClientes)
-    mensajeEliminado.innerHTML = `<p class="eliminado">✅<strong>ÉXITO</strong><br>El cliente se eliminó con éxito</p>`
+    mensajeEliminado.innerHTML = `<p class="exito">✅<strong> ÉXITO</strong><br>El cliente se eliminó con éxito</p>`
 }
 // ============== MAIN ================ //
 
