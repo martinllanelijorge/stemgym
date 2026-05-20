@@ -43,6 +43,8 @@ function aniadirMensajeClienteEliminado(){
 // Pone mensaje de cliente eliminado si viene de eliminar un cliente
 if (clienteEliminado) {
     aniadirMensajeClienteEliminado()
+    // Quita el parámetro de cliente eliminado
+    history.replaceState(null, '', window.location.pathname)
 }
 // Añade los clientes en lista al cargar la página
 if (clientes.length === 0) {
