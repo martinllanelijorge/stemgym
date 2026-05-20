@@ -1,0 +1,8 @@
+com.proyecto.stemgym
+com.proyecto.stemgym.config
+com.proyecto.stemgym.controller
+com.proyecto.stemgym.entity
+com.proyecto.stemgym.repository
+com.proyecto.stemgym.service
+com.proyecto.stemgym.service.impl
+com.proyecto.stemgym.util
