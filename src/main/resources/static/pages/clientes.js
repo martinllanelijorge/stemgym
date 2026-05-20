@@ -46,6 +46,7 @@ if (clienteEliminado) {
     // Quita el parámetro de cliente eliminado
     history.replaceState(null, '', window.location.pathname)
 }
+
 // Añade los clientes en lista al cargar la página
 if (clientes.length === 0) {
     zonaListaClientes.innerHTML += `<li class="advertencia">⚠️<strong> Advertencia</strong><br>No se han encontrado clientes</li>`

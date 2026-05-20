@@ -1,18 +1,19 @@
 import { hacerFetch } from '../utils/apiUtils.js'
 
-// Lugar donde se va a almacenar la lista
+// Contenedores
 const zonaTarjetaEjercicios = document.getElementById("listaEjercicios")
+const buscadorEjercicios = document.getElementById("buscador")
+const btnCrearEjercicio = document.getElementById("crearEjercicio")
+const main = document.querySelector("main")
+const contenedorEjercicios = document.getElementById("contenedorEjercicios")
+
 // Lista de ejercicios de la api y de músculos
 const ejercicios = await hacerFetch("GET", "/ejercicios")
 const musculos = await hacerFetch("GET", "/musculos")
 
-// Buscador de ejercicios
-const buscadorEjercicios = document.getElementById("buscador")
-// Botón para crear ejercicios
-const btnCrearEjercicio = document.getElementById("crearEjercicio")
-
-// Construcción de la lista en el html
-zonaTarjetaEjercicios.innerHTML = ""
+// Obtención de la id del ejercicio y parametros
+const parametros = new URLSearchParams(window.location.search)
+const ejercicioEliminado = parametros.get('ejercicioEliminado')
 
 // Función para compara el ejercicio con lo buscado en el buscador
 function mostrarPorNombreBuscador(textoBusqueda, elementos) {
@@ -24,13 +25,20 @@ function mostrarPorNombreBuscador(textoBusqueda, elementos) {
         // EL NOMBRE COMIENZA POR LO ESCRITO EN EL BUSCADOR - SE MUESTRA
         if (nombre.startsWith(textoBusqueda)) {
             elemento.style.display = ""
-        // EL NOMBRE NO COMIENZA POR LO ESCRITO - NO SE MUESTRA
+            // EL NOMBRE NO COMIENZA POR LO ESCRITO - NO SE MUESTRA
         } else {
             elemento.style.display = "none"
         }
     }
 }
 
+function agregarMensajeExitoEliminado() {
+    const mensajeEliminado = document.createElement('p')
+    main.insertBefore(mensajeEliminado, contenedorEjercicios)
+    mensajeEliminado.innerHTML = `<p class="exito">✅<strong> ÉXITO</strong><br>El ejercicio se eliminó con éxito</p>`
+}
+
+// ================ MAIN =================== //
 // Añade los ejercicios en lista al cargar la página
 if (ejercicios.length === 0) {
     zonaTarjetaEjercicios.innerHTML = `<p class="advertencia"><strong>⚠️ Advertencia</strong><br>Aun no hay ejercicios creados</p>`
@@ -57,4 +65,11 @@ if (musculos.length < 1) {
     btnCrearEjercicio.classList.add("deshabilitado")
     btnCrearEjercicio.removeAttribute("href")
     btnCrearEjercicio.title = "No puedes crear ejercicios si no existen músculos"
+}
+
+// Agrega el mensaje de éxito si se eliminó un ejercicio
+if (ejercicioEliminado) {
+    agregarMensajeExitoEliminado()
+    // Quita el parámetro de cliente eliminado
+    history.replaceState(null, '', window.location.pathname)
 }

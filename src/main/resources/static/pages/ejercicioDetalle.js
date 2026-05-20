@@ -78,7 +78,7 @@ document.getElementById('eliminarEjercicio').addEventListener('click', async () 
     if (confirm(`¿Está seguro de que desea eliminar a ${ejercicio.nombre} de la base de datos?`)) {
         await eliminarEjercicio(idEjercicio)
         // Redirige a la web de musculos
-        window.location.href = "ejercicios.html";
+        window.location.href = "ejercicios.html?ejercicioEliminado=true";
     }
 });
 
