@@ -2,10 +2,14 @@ import { hacerFetch } from '../utils/apiUtils.js'
 
 // Lugar donde se va a almacenar la lista
 const zonaTarjetaEjercicios = document.getElementById("listaEjercicios")
-// Lista de ejercicios de la api
+// Lista de ejercicios de la api y de músculos
 const ejercicios = await hacerFetch("GET", "/ejercicios")
+const musculos = await hacerFetch("GET", "/musculos")
+
 // Buscador de ejercicios
 const buscadorEjercicios = document.getElementById("buscador")
+// Botón para crear ejercicios
+const btnCrearEjercicio = document.getElementById("crearEjercicio")
 
 // Construcción de la lista en el html
 zonaTarjetaEjercicios.innerHTML = ""
@@ -29,7 +33,7 @@ function mostrarPorNombreBuscador(textoBusqueda, elementos) {
 
 // Añade los ejercicios en lista al cargar la página
 if (ejercicios.length === 0) {
-    zonaTarjetaEjercicios.innerHTML = '<li class="mensaje-error-api">No se han encontrado ejercicios</li>'
+    zonaTarjetaEjercicios.innerHTML = `<p class="advertencia"><strong>⚠️ Advertencia</strong><br>Aun no hay ejercicios creados</p>`
 } else {
     for (let ejercicio of ejercicios) {
         zonaTarjetaEjercicios.innerHTML += `
@@ -47,3 +51,8 @@ buscadorEjercicios.addEventListener("input", function () {
     const busquedaActual = this.value.toLowerCase();
     mostrarPorNombreBuscador(busquedaActual, "#listaEjercicios li")
 });
+
+// Si no hay músculos, no puedes crear ejercicios
+if (musculos.length < 1) {
+    btnCrearEjercicio.classList.add("deshabilitado")
+}
