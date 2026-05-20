@@ -39,7 +39,7 @@ public class ClienteInitializer {
      * 
      * @see Cliente
      * 
-     * @sice 1.0
+     * @since 1.0
      */
     @Transactional
     public void inicializarClientes() {

@@ -5,10 +5,9 @@ import java.util.List;
 import com.proyecto.stemgym.entity.Ejercicio;
 
 /**
- * Interfaz para {@link EjercicioServiceImpl}
+ * Interfaz {@link com.proyecto.stemgym.service.impl.EjercicioServiceImpl}
  * <p>
  * Esta interfaz permite visualizar más rápidamente los métodos que contiene
- * {@link EjercicioServiceImpl}
  * </p>
  */
 public interface EjercicioService {

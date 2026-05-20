@@ -5,10 +5,9 @@ import java.util.List;
 import com.proyecto.stemgym.entity.Rutina;
 
 /**
- * Interfaz para {@link RutinaServiceImpl}
+ * Interfaz para {@link com.proyecto.stemgym.service.impl.RutinaServiceImpl}
  * <p>
  * Esta interfaz permite visualizar más rápidamente los métodos que contiene
- * {@link RutinaServiceImpl}
  * </p>
  */
 public interface RutinaService {

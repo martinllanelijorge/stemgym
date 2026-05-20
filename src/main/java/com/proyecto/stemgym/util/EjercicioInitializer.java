@@ -35,7 +35,7 @@ public class EjercicioInitializer {
      * </p>
      * 
      * @see Musculo
-     * @sice 1.0
+     * @since 1.0
      */
     @Transactional
     public void inicializarEjercicios() {

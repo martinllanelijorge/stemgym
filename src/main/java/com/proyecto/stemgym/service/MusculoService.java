@@ -5,10 +5,9 @@ import java.util.List;
 import com.proyecto.stemgym.entity.Musculo;
 
 /**
- * Interfaz para {@link MusculoServiceImpl}
+ * Interfaz para {@link com.proyecto.stemgym.service.impl.MusculoServiceImpl}
  * <p>
  * Esta interfaz permite visualizar más rápidamente los métodos que contiene
- * {@link MusculoServiceImpl}
  * </p>
  */
 public interface MusculoService {

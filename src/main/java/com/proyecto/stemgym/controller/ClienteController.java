@@ -60,7 +60,7 @@ public class ClienteController {
      * Método GET de la API para obtener las {@link Rutina} del cliente por id
      * 
      * @param id del cliente
-     * @return devuelve un LIst<{@link Rutina}> del cliente buscado
+     * @return devuelve un {@link java.util.List} de {@link Rutina} del cliente buscado
      * 
      * @since 1.0
      */

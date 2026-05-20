@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.proyecto.stemgym.entity.Ejercicio;
 import com.proyecto.stemgym.entity.Musculo;
+import com.proyecto.stemgym.entity.Rutina;
 import com.proyecto.stemgym.service.MusculoService;
 
 /**
@@ -61,12 +62,13 @@ public class MusculoController {
      * id
      * 
      * @param id del músculo
-     * @return devuelve un LIst<{@link Ejercicio}> del músculo buscado
+     * @return devuelve un {@link java.util.List} de {@link Ejercicio} del músculo
+     *         buscado
      * 
      * @since 1.0
      */
     @GetMapping("/{id}/ejercicios")
-    public List<Ejercicio> obtenerRutinasCliente(@PathVariable Long id) {
+    public List<Ejercicio> obtenerEjerciciosDeMusculo(@PathVariable Long id) {
         return musculoService.obtenerMusculoPorId(id).getEjercicios();
     }
 
