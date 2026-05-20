@@ -844,9 +844,12 @@ td {
 
 /*======= DESHABILITAR BOTONES ========*/
 .deshabilitado {
-  pointer-events: none;
   cursor: default;
   background-color: grey;
+}
+
+.deshabilitado:hover{
+  transform: scale(1);
 }
 
 /*====== IMPRIMIR RUTINA ======*/

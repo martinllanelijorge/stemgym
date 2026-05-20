@@ -52,7 +52,9 @@ buscadorEjercicios.addEventListener("input", function () {
     mostrarPorNombreBuscador(busquedaActual, "#listaEjercicios li")
 });
 
-// Si no hay músculos, no puedes crear ejercicios
+// Deshabilita el botón de crear ejercicio si no hay músculos
 if (musculos.length < 1) {
     btnCrearEjercicio.classList.add("deshabilitado")
+    btnCrearEjercicio.removeAttribute("href")
+    btnCrearEjercicio.title = "No puedes crear ejercicios si no existen músculos"
 }
