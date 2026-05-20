@@ -35,15 +35,21 @@ zonaBotonesEditarBorrar.innerHTML = `
 
 main.insertBefore(zonaBotonesEditarBorrar, listaEjercicios)
 
-// De cada ejercicio se crea una tarjeta
-for (const ejercicio of rutina.ejercicios) {
-    listaEjercicios.innerHTML += `
+// Comprueba si tiene ejercicios la rutina, y si no lanza un mensaje de alerta
+if (rutina.ejercicios.length < 1) {
+    listaEjercicios.innerHTML = `<p class="advertencia"><strong>⚠️ Advertencia</strong><br>La rutina aun no tiene ejercicios</p>`
+} else {
+    // De cada ejercicio se crea una tarjeta
+    for (const ejercicio of rutina.ejercicios) {
+        listaEjercicios.innerHTML += `
     <li class="tarjeta">
         <img src=${ejercicio.urlImagen}>
         <h2>${ejercicio.nombre}</h2>
         <a href="ejercicioDetalle.html?id=${ejercicio.id}&origen=rutina&rutinaId=${idRutina}" class="btn-ver-mas">Ver más</a>
      </li>`
+    }
 }
+
 
 // Acción del botón volver para volver al cliente detalle
 btnVolver.href = `clienteDetalle.html?id=${rutina.cliente.id}`
