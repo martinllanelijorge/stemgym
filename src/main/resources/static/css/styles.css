@@ -866,7 +866,7 @@ td {
 
 @media print {
   nav,
-  footer,
+  .site-footer,
   button,
   .btn,
   .botones-editar-borrar,
