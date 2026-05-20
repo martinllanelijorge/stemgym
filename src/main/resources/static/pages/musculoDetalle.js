@@ -79,7 +79,7 @@ document.getElementById('eliminarMusculo').addEventListener('click', async () =>
     if (confirm(`¿Está seguro de que desea eliminar a ${musculo.nombre} de la base de datos?`)) {
         await eliminarMusculo(idMusculo)
         // Redirige a la web de musculos
-        window.location.href = "musculos.html";
+        window.location.href = "musculos.html?musculoEliminado=true"
     }
 });
 

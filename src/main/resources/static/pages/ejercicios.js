@@ -32,6 +32,7 @@ function mostrarPorNombreBuscador(textoBusqueda, elementos) {
     }
 }
 
+// Función para agregar un mensaje de éxito eliminado para ejercicio
 function agregarMensajeExitoEliminado() {
     const mensajeEliminado = document.createElement('p')
     main.insertBefore(mensajeEliminado, contenedorEjercicios)
@@ -70,6 +71,6 @@ if (musculos.length < 1) {
 // Agrega el mensaje de éxito si se eliminó un ejercicio
 if (ejercicioEliminado) {
     agregarMensajeExitoEliminado()
-    // Quita el parámetro de cliente eliminado
+    // Quita el parámetro de ejercicio eliminado
     history.replaceState(null, '', window.location.pathname)
 }
