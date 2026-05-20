@@ -29,7 +29,7 @@ function mostrarPorNombreBuscador(textoBusqueda, elementos) {
 
 // Añade los musculos en lista al cargar la página
 if (musculos.length === 0) {
-    zonaTarjetasMusculos.innerHTML = '<li class="mensaje-error-api">No se han encontrado músculos</li>'
+    zonaTarjetasMusculos.innerHTML = `<p class="advertencia"><strong>⚠️ Advertencia</strong><br>Aun no hay músculos creados</p>`
 } else {
     for (let musculo of musculos) {
         zonaTarjetasMusculos.innerHTML += `
