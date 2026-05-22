@@ -92,4 +92,27 @@ public class ClienteServiceTest {
     void actualizarCliente_lanzaExcepcion_siElIdNoExiste() {
         assertThrows(RuntimeException.class, () -> clienteService.actualizarCliente(cliente, -1L));
     }
+
+    // ================ ELIMINAR UN CLIENTE ================ //
+    // Elimina al cliente
+    @Test
+    @DisplayName("Debería eliminar el cliente correctamente")
+    void eliminarCliente_eliminaCliente_siElIdExiste() {
+        Cliente clienteGuardado = clienteService.crearCliente(cliente);
+        Long id = clienteGuardado.getId();
+        // El cliente se guardó correctamente
+        assertEquals(id, clienteService.obtenerClientePorId(id).getId());
+
+        // El cliente se eliminó correctamente - Manda una excepción
+        clienteService.eliminarCliente(id);
+        assertThrows(RuntimeException.class, () -> clienteService.obtenerClientePorId(id));
+    }
+
+    // Error al intentar eliminar cliente que no existe
+    @Test
+    @DisplayName("Debería lanzar una excepción al eliminar un id inexistente")
+    void eliminarCliente_lanzaExcepcion_siElIdNoExiste() {
+        assertThrows(RuntimeException.class, () -> clienteService.obtenerClientePorId(-1L));
+    }
 }
+
