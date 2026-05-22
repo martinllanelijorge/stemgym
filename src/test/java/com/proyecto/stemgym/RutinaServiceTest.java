@@ -11,11 +11,14 @@ import com.proyecto.stemgym.entity.Ejercicio;
 import com.proyecto.stemgym.entity.Musculo;
 import com.proyecto.stemgym.entity.Rutina;
 import com.proyecto.stemgym.repository.ClienteRepository;
+import com.proyecto.stemgym.repository.EjercicioRepository;
+import com.proyecto.stemgym.repository.MusculoRepository;
 import com.proyecto.stemgym.service.RutinaService;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootTest
 public class RutinaServiceTest {
@@ -25,13 +28,26 @@ public class RutinaServiceTest {
     private Cliente cliente;
     @Autowired
     private ClienteRepository clienteRepository;
+    private Ejercicio ejercicio;
+    @Autowired
+    private EjercicioRepository ejercicioRepository;
+    private Musculo musculo;
+    @Autowired
+    private MusculoRepository musculoRepository;
 
     // ================ INICIALIZA LA CLASE ================ //
     @BeforeEach
     void inicializar() {
+        musculo = new Musculo("nombre musculo", 2, 12, 20,
+                "https://m.media-amazon.com/images/I/61WNnhYl2CL._AC_UF894,1000_QL80_.jpg");
+        musculoRepository.save(musculo);
+        ejercicio = new Ejercicio("Ejercillas", "esto es una descripción", "material", "https://ejemplo/imagen.jpg",
+                "https://ejemplo/embeb/JDQQPSDQ01J1EW", musculo, new ArrayList<Musculo>());
+        ejercicioRepository.save(ejercicio);
         cliente = new Cliente("Jorge Martín Llaneli", "Hombre", 27, 77.7, 80, "https://ejemplo/imagen.jpg");
         clienteRepository.save(cliente);
         rutina = new Rutina("nombre rutina", 2, cliente, new ArrayList<Ejercicio>());
+
     }
 
     // ============ CREAR MUSCULO =============== //
@@ -70,11 +86,26 @@ public class RutinaServiceTest {
     // ================ ACTUALIZAR RUTINA ================ //
     @Test
     @DisplayName("Debería actualizar la rutina")
-    void actualizarRutina_actualizaNombre_siCambioNombre() {
+    void actualizarRutina_actualizaNombreYEjerciciosYCliente_siCambioNombreEjerciciosCliente() {
         Rutina rutinaGuardada = rutinaService.crearRutina(rutina);
-        Rutina rutinaActualizada = new Rutina("Actualizada", 2, cliente, new ArrayList<Ejercicio>());
+        assertTrue(rutinaGuardada.getEjercicios().size() == 0);
+
+        List<Ejercicio> listaEjercicios = new ArrayList<>();
+        listaEjercicios.add(ejercicio);
+
+        // Crea cliente nuevo
+        Cliente cliente2 = new Cliente("nuevo cliente", "Hombre", 27, 77.7, 80, "https://ejemplo/imagen.jpg");
+        clienteRepository.save(cliente2);
+
+        // Modifica nombre, cliente, ejercicios
+        Rutina rutinaActualizada = new Rutina("Actualizada", 2, cliente2, listaEjercicios);
         Rutina resultado = rutinaService.actualizarRutina(rutinaActualizada, rutinaGuardada.getId());
+
+        // Comprueba que tenga el nombre cambiado y un ejercicio con nombre Ejercillas
         assertEquals("Actualizada", resultado.getNombre());
+        assertTrue(rutinaActualizada.getEjercicios().size() == 1);
+        assertEquals("Ejercillas", resultado.getEjercicios().get(0).getNombre());
+        assertEquals("nuevo cliente", resultado.getCliente().getNombre());
     }
 
     // ================ ELIMINAR EJERCICIO ================ //

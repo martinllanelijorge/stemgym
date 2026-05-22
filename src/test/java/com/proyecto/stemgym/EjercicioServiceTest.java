@@ -13,6 +13,7 @@ import com.proyecto.stemgym.service.EjercicioService;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootTest
 public class EjercicioServiceTest {
@@ -22,13 +23,17 @@ public class EjercicioServiceTest {
     private MusculoRepository musculoRepository;
     private Ejercicio ejercicio;
     private Musculo musculo;
+    private Musculo musculoSecundario;
 
     // ================ INICIALIZA LA CLASE ================ //
     @BeforeEach
     void inicializar() {
         musculo = new Musculo("nombre musculo", 2, 12, 20,
                 "https://m.media-amazon.com/images/I/61WNnhYl2CL._AC_UF894,1000_QL80_.jpg");
+        musculoSecundario = new Musculo("nombre musculo secundario", 2, 12, 20,
+                "https://m.media-amazon.com/images/I/61WNnhYl2CL._AC_UF894,1000_QL80_.jpg");
         musculoRepository.save(musculo);
+        musculoRepository.save(musculoSecundario);
         ejercicio = new Ejercicio("Ejercillas", "esto es una descripción", "material", "https://ejemplo/imagen.jpg",
                 "https://ejemplo/embeb/JDQQPSDQ01J1EW", musculo, new ArrayList<Musculo>());
     }
@@ -68,13 +73,25 @@ public class EjercicioServiceTest {
     // ================ ACTUALIZAR EJERCICIO ================ //
     @Test
     @DisplayName("Debería actualizar el ejercicio")
-    void actualizarEjercicio_actualizaNombre_siCambioNombre() {
+    void actualizarEjercicio_actualizaNombreYMusculoSecundario_siCambioNombreYMusculoSecundario() {
+        // Debería tener 0 músculos secundarios
         Ejercicio ejercicioGuardado = ejercicioService.crearEjercicio(ejercicio);
+        assertTrue(ejercicioGuardado.getMusculosSecundarios().size() == 0);
+
+
+        // Añade musculoSecundario a la lista de secundarios y cambia el nombre a actualizado
+        List<Musculo> listaSecundarios = new ArrayList<>();
+        listaSecundarios.add(musculoSecundario);
         Ejercicio ejercicioActualizado = new Ejercicio("Actualizado", "esto es una descripción", "material",
                 "https://ejemplo/imagen.jpg",
-                "https://ejemplo/embeb/JDQQPSDQ01J1EW", musculo, new ArrayList<Musculo>());
+                "https://ejemplo/embeb/JDQQPSDQ01J1EW", musculo, listaSecundarios);
+
         Ejercicio resultado = ejercicioService.actualizarEjercicio(ejercicioActualizado, ejercicioGuardado.getId());
+
+        // Debería cambiar el nombre, añadir el músculo secundario
         assertEquals("Actualizado", resultado.getNombre());
+        assertTrue(resultado.getMusculosSecundarios().size() == 1);
+        assertEquals("nombre musculo secundario", resultado.getMusculosSecundarios().get(0).getNombre());
     }
 
     // ================ ELIMINAR EJERCICIO ================ //
@@ -89,10 +106,11 @@ public class EjercicioServiceTest {
         assertThrows(RuntimeException.class, () -> ejercicioService.obtenerEjercicioPorId(id));
     }
 
-    // ================ ELIMINAR EJERCICIO QUE IMPLICA UN MÚSCULO CONCRETO ================ //
+    // ================ ELIMINAR EJERCICIO QUE IMPLICA UN MÚSCULO CONCRETO
+    // ================ //
     @Test
     @DisplayName("Debería eliminar el ejercicio que implica el músculo")
-    void eliminarEjerciciosDeMusculo_lanzaExcepcionAlObtenerEjercicio_siEjercicioEliminadoPorqueTieneElMusculo(){
+    void eliminarEjerciciosDeMusculo_lanzaExcepcionAlObtenerEjercicio_siEjercicioEliminadoPorqueTieneElMusculo() {
         Ejercicio ejercicioGuardado = ejercicioService.crearEjercicio(ejercicio);
         Long id = ejercicioGuardado.getId();
         assertEquals(id, ejercicioService.obtenerEjercicioPorId(id).getId());
