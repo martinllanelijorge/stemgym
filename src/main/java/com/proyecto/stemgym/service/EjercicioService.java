@@ -3,6 +3,7 @@ package com.proyecto.stemgym.service;
 import java.util.List;
 
 import com.proyecto.stemgym.entity.Ejercicio;
+import com.proyecto.stemgym.entity.Musculo;
 
 /**
  * Interfaz {@link com.proyecto.stemgym.service.impl.EjercicioServiceImpl}
@@ -20,4 +21,6 @@ public interface EjercicioService {
     Ejercicio actualizarEjercicio(Ejercicio ejercicioActualizado, Long id);
 
     void eliminarEjercicio(Long id);
+
+    void eliminarEjerciciosDeMusculo(Musculo musculo);
 }

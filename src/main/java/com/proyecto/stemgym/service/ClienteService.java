@@ -5,7 +5,7 @@ import java.util.List;
 import com.proyecto.stemgym.entity.Cliente;
 
 /**
- * Interfaz para {@link com.proyecto.stemgym.service.impl.ClienteServiceImpl}
+ * Interfaz para {@link com.proyecto.stemgym.service.impl.ClienteService}
  * <p>
  * Esta interfaz permite visualizar más rápidamente los métodos que contiene
  * </p>
