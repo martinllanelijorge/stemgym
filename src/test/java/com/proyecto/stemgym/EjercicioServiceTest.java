@@ -41,15 +41,6 @@ public class EjercicioServiceTest {
     }
 
     // ================ OBTENER TODOS LOS EJERCICIOS ================ //
-    // Devuelve lista no vacía
-    @Test
-    @DisplayName("Debería devolver una lista de tamaño mayor a 0")
-    void obtenerTodos_devuelveTrue_siListaNoVaciaAlAgregarEjercicios() {
-        ejercicioService.crearEjercicio(ejercicio);
-        assertTrue(ejercicioService.obtenerTodos().size() > 0);
-    }
-
-    // Devuelve lista con numero más grande que antes
     @Test
     @DisplayName("Deberían ser iguales si lista anterior le sumo 1 ejercicio")
     void obtenerTodos_devuelveTrue_siDevuelveNumeroTodosEjericicosMasUnoCreado() {
