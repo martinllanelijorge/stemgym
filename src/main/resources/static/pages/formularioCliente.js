@@ -27,6 +27,7 @@ async function cargarDatosClienteEnFormulario() {
     form.avatar.value = cliente.urlImagen
 }
 
+// Función que recupera los datos del formulario y crea un cliente
 function crearClienteDesdeFormulario() {
     let datosCliente = {
         nombre: form.nombre.value,
