@@ -44,6 +44,7 @@ public class ClienteServiceTest {
     void obtenerTodos_devuelveListaNoNula_siObtengoListaClientes() {
         assertNotNull(clienteService.obtenerTodos());
     }
+
     // Todos los clientes +1 tras crear uno nuevo
     @Test
     @DisplayName("Debería devolver al menos un cliente más tras crear uno")
@@ -71,5 +72,24 @@ public class ClienteServiceTest {
         assertThrows(RuntimeException.class, () -> clienteService.obtenerClientePorId(-1L));
     }
 
-    
+    // ================ ACTUALIZAR UN CLIENTE ================ //
+    // Acttualiza nombre
+    @Test
+    @DisplayName("Debería actualizar el nombre del cliente correctamente")
+    void actualizarCliente_actualizaNombre_siElClienteExiste() {
+        Cliente clienteGuardado = clienteService.crearCliente(cliente);
+
+        Cliente clienteActualizado = new Cliente("Actualizado", "Hombre", 27, 77.7, 80,
+                "https://ejemplo/imagen.jpg");
+        Cliente resultado = clienteService.actualizarCliente(clienteActualizado, clienteGuardado.getId());
+
+        assertEquals("Actualizado", resultado.getNombre());
+    }
+
+    // Error al actualizar cliente inexistente
+    @Test
+    @DisplayName("Debería lanzar una excepción al actualizar un id inexistente")
+    void actualizarCliente_lanzaExcepcion_siElIdNoExiste() {
+        assertThrows(RuntimeException.class, () -> clienteService.actualizarCliente(cliente, -1L));
+    }
 }
