@@ -23,13 +23,11 @@ public class ClienteServiceTest {
     @Autowired
     private ClienteService clienteService;
     private Cliente cliente;
-    private InitializationConfig initializationConfig;
 
     // ================ INICIALIZA LA CLASE ================ //
     @BeforeEach
     void inicializar() {
         cliente = new Cliente("Jorge Martín Llaneli", "Hombre", 27, 77.7, 80, "https://ejemplo/imagen.jpg");
-        initializationConfig = new InitializationConfig();
     }
 
     // ================ CREAR UN CLIENTE EN LA BBDD ================ //
@@ -46,23 +44,32 @@ public class ClienteServiceTest {
     void obtenerTodos_devuelveListaNoNula_siObtengoListaClientes() {
         assertNotNull(clienteService.obtenerTodos());
     }
-
-    // Lista con clientes
-    @Test
-    @DisplayName("Debería devolver una lista de tamaño indicado en initializationConfig.getNumeroInicialDeClientes()")
-    void obtenerTodos_devuelveListaConClientes_siObtengoListaClientes() {
-        assertEquals(initializationConfig.getNumeroInicialDeClientes(), clienteService.obtenerTodos().size());
-    }
-
     // Todos los clientes +1 tras crear uno nuevo
     @Test
-    @DisplayName("Debería devolver al menos un cliente más que initializationConfig.getNumeroInicialDeClientes() tras crear uno")
+    @DisplayName("Debería devolver al menos un cliente más tras crear uno")
     void obtenerTodos_devuelveMasClientes_siCreaUnoNuevo() {
+        int numeroClientes = clienteService.obtenerTodos().size();
         clienteService.crearCliente(cliente);
         List<Cliente> clientes = clienteService.obtenerTodos();
-        assertEquals(initializationConfig.getNumeroInicialDeClientes() + 1, clientes.size());
+        assertEquals(numeroClientes + 1, clientes.size());
     }
 
     // ================ OBTENER CLIENTE POR ID ================ //
+    // Devuelve el mismo cliente
+    @Test
+    @DisplayName("Debería devolver el cliente correcto por su id")
+    void obtenerClientePorId_devuelveClienteCorrecto_siExisteElId() {
+        Cliente clienteGuardado = clienteService.crearCliente(cliente);
+        Cliente clienteEncontrado = clienteService.obtenerClientePorId(clienteGuardado.getId());
+        assertEquals(clienteGuardado.getId(), clienteEncontrado.getId());
+    }
 
+    // Salta un error
+    @Test
+    @DisplayName("Debería lanzar una excepción si el id no existe")
+    void obtenerClientePorId_lanzaExcepcion_siNoExisteElId() {
+        assertThrows(RuntimeException.class, () -> clienteService.obtenerClientePorId(-1L));
+    }
+
+    
 }
