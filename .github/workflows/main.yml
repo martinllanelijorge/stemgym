@@ -15,6 +15,8 @@ jobs:
           distribution: 'temurin'
       - name: Run tests
         run: mvn test
+      - name: Verificar reporte JaCoCo
+        run: cat target/site/jacoco/jacoco.xml || echo "No se encontró el reporte"
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:
